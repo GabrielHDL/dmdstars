@@ -1,3 +1,35 @@
 .container {
     @apply max-w-7xl mx-auto px-2;
   }
+
+.highlight {
+  @apply font-proximaBold text-rifleGreen text-5xl dark:text-accent;
+}
+
+.section {
+  display: grid;
+  width: 100%;
+  place-items: center;
+  background-size: cover;
+  background-position: center;
+}
+
+.section > * {
+  grid-column-start: 1;
+  grid-row-start: 1;
+}
+
+.section_bck {
+  @apply grid grid-cols-5 h-full w-full absolute z-[0];
+}
+
+
+/* Seleccion */
+
+::selection {
+  @apply bg-deer bg-opacity-80 text-rifleGreen;
+}
+
+::-moz-selection {
+  @apply bg-deer bg-opacity-80 text-rifleGreen;
+}

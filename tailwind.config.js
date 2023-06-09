@@ -14,9 +14,17 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Adamina', ...defaultTheme.fontFamily.sans],
-                poppins: ['Poppins', ...defaultTheme.fontFamily.sans],
+                sans: ['proxima_novaregular', ...defaultTheme.fontFamily.sans],
+                proximaBold: ['proxima_novabold', ...defaultTheme.fontFamily.sans],
+                saol: ['saol_displayregular', ...defaultTheme.fontFamily.serif],
             },
+
+            colors: {
+                platinum: '#E6E1DE',
+                rifleGreen: '#44503A',
+                deer: '#BD7D4D',
+                goldenrod: '#D59F21',
+            }
         },
     },
 
@@ -25,11 +33,11 @@ export default {
           {
             mytheme: {
             
-                "primary": "#F2F2F2",
+                "primary": "#FFFFFF",
           
                 "secondary": "#000000",
                         
-                "accent": "#4d7c0f",
+                "accent": "#EEDAC7",
                         
                 "neutral": "#191D24",
                         

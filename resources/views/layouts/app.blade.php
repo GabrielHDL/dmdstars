@@ -7,11 +7,6 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
-        {{-- Fonts --}}
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Adamina&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
         {{-- Font Awesome --}}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -22,9 +17,43 @@
         @livewireStyles
     </head>
     <body class="font-sans antialiased">
+        <style>
+            @font-face {
+                font-family: 'proxima_novabold';
+                src: url('/assets/fonts/proximanova-bold-webfont.woff2') format('woff2'),
+                    url('/assets/fonts/proximanova-bold-webfont.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
+
+            }
+
+
+
+
+            @font-face {
+                font-family: 'proxima_novaregular';
+                src: url('/assets/fonts/proxima_nova_font-webfont.woff2') format('woff2'),
+                    url('/assets/fonts/proxima_nova_font-webfont.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
+
+            }
+
+
+
+
+            @font-face {
+                font-family: 'saol_displayregular';
+                src: url('/assets/fonts/saoldisplay-regular-webfont.woff2') format('woff2'),
+                    url('/assets/fonts/saoldisplay-regular-webfont.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
+
+            }
+        </style>
         <x-banner />
 
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen bg-platinum">
             @livewire('navigation')
 
             <!-- Page Content -->

@@ -34,7 +34,7 @@
                     <span class="font-sans font-light text-base">Driven by my entrepreneurial spirit and passion for creativity, I embarked on a journey to establish my own brand: DMD STARS. I wanted to create a product that exuded "authenticity" and "rebellion," something fresh and modern yet with a touch of classic. It's important to acknowledge the exceptional craftsmanship of Mexican artisans, who take immense pride in their work.</span>
                 </p>
                 <div>
-                    <a href="#meet" type="button" class="uppercase font-bold text-white bg-goldenrod hover:bg-deer focus:ring-4 focus:outline-none focus:ring-deer text-sm px-8 py-3 text-center inline-flex items-center">
+                    <a href="#eco" type="button" class="uppercase font-bold text-white bg-goldenrod hover:bg-deer focus:ring-4 focus:outline-none focus:ring-deer text-sm px-8 py-3 text-center inline-flex items-center">
                         How to
                         <i class="ml-4 -mr-1 fa-solid fa-chevron-right"></i>
                     </a>
@@ -64,7 +64,7 @@
                         With us, you can indulge in luxurious leather fashion without compromising your values. Join us in celebrating the beauty of leather while contributing to a greener future. Together, we can make a stylish statement that resonates with both fashion enthusiasts and eco-conscious consumers."</span>
                 </p>
                 <div>
-                    <a href="#bepartner" type="button" class="uppercase font-bold text-white bg-goldenrod hover:bg-deer focus:ring-4 focus:outline-none focus:ring-deer text-sm px-8 py-3 text-center inline-flex items-center">
+                    <a href="#meet" type="button" class="uppercase font-bold text-white bg-goldenrod hover:bg-deer focus:ring-4 focus:outline-none focus:ring-deer text-sm px-8 py-3 text-center inline-flex items-center">
                         Meet
                         <i class="ml-4 -mr-1 fa-solid fa-chevron-right"></i>
                     </a>
@@ -130,7 +130,7 @@
             <div class="h-full w-full flex justify-center items-center">
                 <img class="h-full w-full object-cover object-center" src="{{asset('assets/img/contact.jpg')}}" alt="">
             </div>
-            <div class="px-20 py-10">
+            <div class="px-10 sm:px-12 md:px-20 py-10 h-full">
                 @livewire('partner')
             </div>
         </div>

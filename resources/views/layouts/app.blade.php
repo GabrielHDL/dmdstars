@@ -5,6 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
+        <meta property="og:title" content="DMD Stars®" />
+        <meta property="og:description" content="Join DMD Stars on July 11th" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="{{Request::url()}}" />
+        <meta property="og:image" content="{{asset('assets/og/og_dmd.png')}}" />
+
         <meta name="theme-color" content="#E6E1DE" />
 
         <title>{{ config('app.name', 'Laravel') }}</title>

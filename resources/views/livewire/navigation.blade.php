@@ -5,7 +5,7 @@
         </div>
         <div class="flex justify-center items-center">
             <a id="logo" class="text-rifleGreen" href="#">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 328.23 79.06" class="h-10 w-auto fill-current" fill="none">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 328.23 79.06" class="h-8 sm:h-10 w-auto fill-current" fill="none">
                     <g id="objects">
                         <path
                             d="M31.18,20.18H15.94V58.83h15.3c12.05,0,20.45-7.65,20.45-19.36S43.29,20.18,31.18,20.18Zm0,31.4h-7V27.42h7.07c7.88,0,12.05,5.28,12.05,12C43.29,46.08,38.83,51.58,31.18,51.58Z" />

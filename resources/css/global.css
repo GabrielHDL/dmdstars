@@ -3,8 +3,8 @@ html {
 }
 
 .container {
-    @apply max-w-7xl mx-auto px-2;
-  }
+  @apply max-w-7xl mx-auto px-2;
+}
 
 .highlight {
   @apply font-proximaBold text-rifleGreen text-5xl dark:text-accent;
@@ -31,9 +31,46 @@ html {
 /* Seleccion */
 
 ::selection {
-  @apply bg-deer bg-opacity-80 text-rifleGreen;
+  @apply bg-rifleGreen bg-opacity-80 text-white;
 }
 
 ::-moz-selection {
-  @apply bg-deer bg-opacity-80 text-rifleGreen;
+  @apply bg-rifleGreen bg-opacity-80 text-white;
 }
+
+/**
+* Scrolling CSS
+*/
+#header {
+  transition: all ease .65s;
+}
+
+#partner {
+  transition: all ease .65s;
+}
+
+#logo {
+  transition: all ease .65s;
+}
+
+.menu-nav {
+  transition: all ease .65s;
+}
+
+#header.scroll {
+  transition: all ease .65s;
+  @apply bg-rifleGreen/40 backdrop-blur-sm;
+  position: fixed;
+  @apply shadow shadow-[rgba(0,0,0,0.20)];
+}
+
+.menu-nav.scroll {
+  transition: all ease .65s;
+  @apply text-white;
+}
+
+#logo.scroll {
+  @apply text-white;
+  transition: all ease .65s;
+}
+/* Termina scroll */

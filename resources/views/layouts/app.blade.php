@@ -12,47 +12,26 @@
         {{-- Font Awesome --}}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+        {{-- Favicon --}}
+        <link rel="icon" href="{{asset('assets/favicons/favicon32x32.png')}}" sizes="32x32" />
+        <link rel="icon" href="{{asset('assets/favicons/favicon192x192.png')}}" sizes="192x192" />
+
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body class="font-sans antialiased">
-        <style>
-            @font-face {
-                font-family: 'proxima_novabold';
-                src: url('/assets/fonts/proximanova-bold-webfont.woff2') format('woff2'),
-                    url('/assets/fonts/proximanova-bold-webfont.woff') format('woff');
-                font-weight: normal;
-                font-style: normal;
-
-            }
-
-
-
-
-            @font-face {
-                font-family: 'proxima_novaregular';
-                src: url('/assets/fonts/proxima_nova_font-webfont.woff2') format('woff2'),
-                    url('/assets/fonts/proxima_nova_font-webfont.woff') format('woff');
-                font-weight: normal;
-                font-style: normal;
-
-            }
-
-
-
-
-            @font-face {
-                font-family: 'saol_displayregular';
-                src: url('/assets/fonts/saoldisplay-regular-webfont.woff2') format('woff2'),
-                    url('/assets/fonts/saoldisplay-regular-webfont.woff') format('woff');
-                font-weight: normal;
-                font-style: normal;
-
-            }
-        </style>
+    <body class="font-sans antialiased w-full">
+        <div id="preloader" class="transition-all ease-out duration-300 opacity-100 bg-platinum w-full h-screen flex justify-center items-center fixed top-0 z-[9999]">
+            <div class="w-full flex justify-center items-center flex-col">
+                <img class="h-20 mb-6 w-auto" src="{{asset('assets/logos/svg/isotipo_gre.svg')}}" alt="Logo">
+                <div class="h-5 w-80 sm:w-96 relative max-w-xl rounded-full overflow-hidden">
+                    <div class="w-full h-full bg-gray-200 absolute"></div>
+                    <div id="bar" class="transition-all ease-in-out duration-[2000ms] h-full bg-deer relative w-0"></div>
+                </div>
+            </div>
+        </div>
         <x-banner />
 
         <div class="min-h-screen bg-platinum">
@@ -66,9 +45,11 @@
 
         @stack('modals')
 
-        @livewireScripts
-
         <x-footer />
+
+        <script rel="preload" src="{{asset('assets/js/custom.js')}}"></script>
+
+        @livewireScripts
 
     </body>
 </html>

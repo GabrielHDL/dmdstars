@@ -84,7 +84,7 @@
     @enderror
 
     <div class="flex justify-end items-center">
-        <input wire:loading.attr="disabled" wire:target="submitForm" class="disabled:opacity-40 disabled:cursor-wait uppercase bg-goldenrod text-white py-3 px-10 hover:bg-deer cursor-pointer" type="submit" value="Send">
+        <input wire:loading.attr="disabled" wire:target="submitForm" class="disabled:opacity-40 disabled:cursor-wait uppercase font-bold text-white bg-goldenrod hover:bg-deer focus:ring-4 focus:outline-none focus:ring-deer text-sm px-8 py-3 text-center inline-flex items-center cursor-pointer" type="submit" value="Send">
     </div>
 
     @if ($successMessage)

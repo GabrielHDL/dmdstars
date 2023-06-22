@@ -1,6 +1,7 @@
 import defaultTheme from 'tailwindcss/defaultTheme';
 import forms from '@tailwindcss/forms';
 import typography from '@tailwindcss/typography';
+import daisyui from 'daisyui';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -29,35 +30,51 @@ export default {
     },
 
     daisyui: {
-        themes: [
-          {
-            mytheme: {
-            
-                "primary": "#FFFFFF",
-          
-                "secondary": "#000000",
-                        
-                "accent": "#EEDAC7",
-                        
-                "neutral": "#191D24",
-                        
-                "base-100": "#FFFFFF",
-                        
-                "info": "#0e7490",
-                        
-                "success": "#84cc16",
-                        
-                "warning": "#f59e0b",
-                        
-                "error": "#dc2626",
-            },
-          },
-        ],
+        styled: true,
+        themes: true,
+        base: true,
+        utils: true,
+        logs: true,
+        rtl: false,
+        prefix: "",
+        darkTheme: "dark",
     },
+
+    // daisyui: {
+    //     themes: [
+    //       {
+    //         mytheme: {
+            
+    //             "primary": "#FFFFFF",
+          
+    //             "secondary": "#000000",
+                        
+    //             "accent": "#EEDAC7",
+                        
+    //             "neutral": "#191D24",
+                        
+    //             "base-100": "#FFFFFF",
+                        
+    //             "info": "#0e7490",
+                        
+    //             "success": "#84cc16",
+                        
+    //             "warning": "#f59e0b",
+                        
+    //             "error": "#dc2626",
+    //         },
+    //       },
+    //     ],
+    //     styled: true,
+    //     base: true,
+    //     utils: true,
+    //     logs: true,
+    //     rtl: false,
+    // },
 
     corePlugins: {
         container: false,
     },
 
-    plugins: [forms, typography, require("daisyui")],
+    plugins: [forms, typography, daisyui],
 };

@@ -44,7 +44,7 @@
             @livewire('navigation')
 
             <!-- Page Content -->
-            <main>
+            <main class="pt-16">
                 {{ $slot }}
             </main>
         </div>

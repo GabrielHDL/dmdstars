@@ -4,7 +4,7 @@
             <a class="menu-nav mr-4 sm:mr-0 font-proximaBold text-rifleGreen" href="#">Intro</a>
         </div>
         <div class="flex justify-center items-center">
-            <a id="logo" class="text-rifleGreen" href="#">
+            <a id="logo" class="text-rifleGreen" href="/">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 328.23 79.06" class="h-8 sm:h-10 w-auto fill-current" fill="none">
                     <g id="objects">
                         <path

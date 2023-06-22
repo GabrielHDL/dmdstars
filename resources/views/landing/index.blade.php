@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="hero min-h-screen">
         <div class="container grid sm:flex justify-start w-full h-full items-center relative z-[2]">
-            <div class="pt-16 flex justify-center items-center sm:hidden">
+            <div class="flex justify-center items-center sm:hidden">
                 <img class="h-80 w-auto object-cover object-center" src="{{asset('assets/img/hero_dmd.jpg')}}" alt="">
             </div>
             <div data-inviewport="slide-top" class="relative -top-32 sm:top-0">
@@ -109,6 +109,10 @@
                 <span class="my-4 text-deer text-center text-2xl font-semibold">"Actions speak louder than words."</span>
 
                 <p class="text-rifleGreen text-lg text-center">I aim to stay focused and prove to myself that I can achieve my goals.<br />With your support, I will strive even harder. Thank you for taking the time to read this brochure. I eagerly await your response and am here to address any inquiries you may have.</p>
+
+                <h2 class="text-rifleGreen font-saol text-4xl font-bold text-center mt-6">Join Us at the Hermosa Hotel in Avalon</h2>
+
+                <p class="text-deer text-xl text-center font-bold mt-6">The event will take place on July 11, 2023<br />at the lobby of the Hermosa Hotel <br />located at 131 Metropole Ave.<br />Avalon, CA 90704.</p>
 
                 <a data-inviewport="appear" href="#bepartner" type="button" class="mt-8 uppercase font-bold text-white bg-goldenrod hover:bg-deer focus:ring-4 focus:outline-none focus:ring-deer text-sm px-8 py-3 text-center inline-flex items-center">
                     Be a Partner

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('phone');
             $table->boolean('isActive')->default(false);
+            $table->enum('confirm', ['confirmed', 'notyet', 'rejected'])->default('notyet');
 
             $table->timestamps();
         });

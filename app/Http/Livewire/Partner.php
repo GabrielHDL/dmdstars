@@ -58,7 +58,7 @@ class Partner extends Component
             
             $this->successMessage = 'Thank you for your interest, we will write to you soon.';
 
-            Mail::to('r-alondra@hotmail.com')->send($mail);
+            Mail::to('alondra@dmdstars.com')->send($mail);
         
             Mail::to($partner['email'])->send($mail2);
 

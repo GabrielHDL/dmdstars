@@ -1,5 +1,6 @@
 <x-admin-layout>
     <div class="container">
+      <h1 class="font-saol font-bold text-3xl mb-4">Pendings</h1>
         <div class="overflow-x-auto">
             <table class="table">
               <!-- head -->

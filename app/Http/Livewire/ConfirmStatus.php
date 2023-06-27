@@ -22,6 +22,7 @@ class ConfirmStatus extends Component
         $partner = $this->partner;
         $partner->confirm = $this->confirm;
         $partner->save();
+        $this->emit('updateStatus');
     }
 
     public function render()

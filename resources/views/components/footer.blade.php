@@ -8,8 +8,8 @@
             </div>
             <div class="flex text-rifleGreen pb-6 sm:pb-0 flex-1 items-center justify-center gap-8">
                 <a target="_blank" class="hover:underline" href="https://dmdstars.com">Shop</a>
-                <a class="hover:underline" href="#">Privacy Policy</a>
-                <a class="hover:underline" href="#">Terms of Services</a>
+                <a target="_blank" class="hover:underline" href="{{route('policy.show')}}">Privacy Policy</a>
+                <a target="_blank" class="hover:underline" href="{{route('terms.show')}}">Terms of Services</a>
             </div>
             <div class="flex justify-center sm:justify-end pb-6 sm:pb-0 items-center gap-4 text-2xl text-rifleGreen">
                 <a target="_blank" href="https://www.facebook.com/profile.php?id=100089075422145"><i class="fa-brands fa-facebook"></i></a>

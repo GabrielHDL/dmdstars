@@ -1,6 +1,6 @@
 <form wire:submit.prevent="updateConfirm" method="POST" class="flex flex-col justify-center items-start">
     <label for="confirm">Confirm:</label>
-        <select name="confirm" id="confirm" wire:model="confirm" class="select select-bordered w-full max-w-xs text-rifleGreen dark:text-platinum">
+        <select name="confirm" id="confirm" wire:model="confirm" class="select select-bordered w-full max-w-xs text-rifleGreen">
             <option value="notyet" @if ($partner->isActive == true)
                 disabled
             @endif>Pending</option>

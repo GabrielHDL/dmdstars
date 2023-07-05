@@ -1,7 +1,7 @@
 <x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
-            <x-authentication-card-logo color="text-platinum" />
+            <x-authentication-card-logo />
         </x-slot>
 
         <x-validation-errors class="mb-4" />
@@ -17,7 +17,7 @@
 
             <div>
                 <x-label for="email" value="{{ __('Email') }}" />
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
             </div>
 
             <div class="mt-4">
@@ -40,9 +40,13 @@
                 @endif
 
                 <x-button class="ml-4">
-                    {{ __('Log in') }}
+                    {{ __('Login') }}
                 </x-button>
             </div>
         </form>
+
+        @if (JoelButcher\Socialstream\Socialstream::show())
+            <x-socialstream />
+        @endif
     </x-authentication-card>
 </x-guest-layout>

@@ -1,10 +1,17 @@
-<header id="header" class="fixed top-0 w-full z-[999] flex items-center justify-center h-16">
-    <nav class="grid grid-cols-3 w-full container">
-        <div class="flex justify-end items-center">
-            <a class="menu-nav mr-4 sm:mr-0 font-proximaBold text-rifleGreen" href="#">Intro</a>
-        </div>
-        <div class="flex justify-center items-center">
-            <a id="logo" class="text-rifleGreen" href="/">
+<div class="bg-rifleGreen fixed top-0 left-0 right-0 z-[999] shadow-md">
+    <div class="navbar container">
+        <div class="navbar-start">
+            <div class="dropdown">
+              <label tabindex="0" class="btn btn-ghost hover:bg-deer/30 btn-circle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 stroke-platinum" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+              </label>
+              <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 bg-rifleGreen text-white hover:text-platinum shadow rounded-box w-52">
+                @foreach ($genders as $gender)
+                    <li><a>{!! $gender->icon !!}{{$gender->name}}</a></li>
+                @endforeach
+              </ul>
+            </div>
+            <a id="logo" class="text-platinum" href="/">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 328.23 79.06" class="h-8 sm:h-10 w-auto fill-current" fill="none">
                     <g id="objects">
                         <path
@@ -24,9 +31,46 @@
                     </g>
                 </svg>
             </a>
+          </div>
+        {{-- <div class="navbar-center">
+            
+        </div> --}}
+        <div class="navbar-end">
+            @livewire('search')
+            @livewire('dropdown-cart')
+            <div class="dropdown dropdown-end">
+                <label tabindex="0" class="btn btn-ghost hover:bg-deer/30 btn-circle avatar">
+                    <div class="w-10 rounded-full">
+                        @auth
+                            <img src="{{ Auth::user()->profile_photo_url }}" />
+                        @else
+                            <div class="h-full flex justify-center items-center text-base w-full bg-rifleGreen/70">
+                                <i class="text-platinum fa-solid fa-user"></i>
+                            </div>
+                        @endauth
+                    </div>
+                </label>
+                <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 bg-rifleGreen text-white hover:text-platinum shadow rounded-box w-52">
+                    @auth
+                        <li>
+                            <a class="justify-between" href="{{route('profile.show')}}">Profile
+                                <span class="badge bg-goldenrod text-white border-0">New</span>
+                            </a>
+                        </li>
+                        <li>
+                            <form method="POST" action="{{ route('logout') }}" class="mb-0" x-data>
+                                @csrf
+                                <a href="{{ route('logout') }}" @click.prevent="$root.submit();">
+                                    {{ __('Log Out') }}
+                                </a>
+                            </form>
+                        </li>
+                    @else
+                        <li><a href="{{route('register')}}">Register</a></li>
+                        <li><a href="{{route('login')}}">Login</a></li>
+                    @endauth
+                </ul>
+            </div>
         </div>
-        <div class="flex justify-start items-center">
-            <a class="menu-nav ml-4 sm:ml-0 font-proximaBold text-rifleGreen" href="#bepartner">Be a Partner</a>
-        </div>
-    </nav>
-</header>
+    </div>
+</div>

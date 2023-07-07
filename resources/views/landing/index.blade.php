@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-landing-layout>
     <div class="hero min-h-screen">
         <div class="container grid sm:flex justify-start w-full h-full items-center relative z-[2]">
             <div class="flex justify-center items-center sm:hidden">
@@ -133,4 +133,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+</x-landing-layout>

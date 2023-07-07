@@ -2,12 +2,16 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Gender;
 use Livewire\Component;
 
 class Navigation extends Component
 {
     public function render()
     {
-        return view('livewire.navigation');
+
+        $genders = Gender::all();
+
+        return view('livewire.navigation', compact('genders'));
     }
 }

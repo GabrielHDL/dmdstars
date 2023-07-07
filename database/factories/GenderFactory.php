@@ -3,13 +3,12 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-
 use Smknstd\FakerPicsumImages\FakerPicsumImagesProvider as Faker;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Image>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Gender>
  */
-class ImageFactory extends Factory
+class GenderFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -22,7 +21,7 @@ class ImageFactory extends Factory
         $faker->addProvider(new Faker($faker));
 
         return [
-            'url' => 'products/' . $faker->image($dir = 'public/storage/products', $width = 640, $height = 480, $isFullPath = false)
+            'image' => 'genders/' . $faker->image($dir = 'public/storage/genders', $width = 640, $height = 480, $isFullPath = false)
         ];
     }
 }

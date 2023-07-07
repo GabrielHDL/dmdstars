@@ -18,7 +18,7 @@ class Subcategory extends Model
 
     // Relacion uno a muchos inversa
     public function category() {
-        $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class);
     }
 
 }

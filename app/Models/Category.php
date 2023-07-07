@@ -9,11 +9,11 @@ class Category extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'slug', 'image', 'icon'];
+    protected $guarded = ['id', 'created_at', 'updated_at'];
 
-    // Relacion uno a muchos
-    public function subcategories() {
-        return $this->hasMany(Subcategory::class);
+    // Relacion uno a muchos a traves
+    public function products() {
+        return $this->hasManyThrough(Product::class, Subcategory::class);
     }
 
     // Relacion muchos a muchos
@@ -21,9 +21,13 @@ class Category extends Model
         return $this->belongsToMany(Brand::class);
     }
 
-    // Relacion uno a muchos a traves de
-    public function products() {
-        return $this->hasManyThrough(Product::class, Subcategory::class);
+    // Relacion uno a muchos
+    public function subcategories() {
+        return $this->hasMany(Subcategory::class);
     }
 
+    // Relacion uno a muchos inversa
+    public function gender() {
+       return $this->belongsTo(Gender::class);
+    }
 }

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Storage;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,9 +13,28 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call(UserSeeder::class);
 
-        \App\Models\Partner::factory(80)->create();
+        Storage::deleteDirectory('categories');
+        Storage::deleteDirectory('products');
+        Storage::deleteDirectory('brands');
+        Storage::deleteDirectory('genders');
+
+        Storage::makeDirectory('categories');
+        Storage::makeDirectory('products');
+        Storage::makeDirectory('brands');
+        Storage::makeDirectory('genders');
+
+        $this->call(UserSeeder::class);
+        $this->call(GenderSeeder::class);
+        $this->call(CategorySeeder::class);
+        $this->call(SubcategorySeeder::class);
+        // $this->call(BrandSeeder::class);
+        $this->call(ProductSeeder::class);
+        $this->call(ColorSeeder::class);
+        $this->call(ColorProductSeeder::class);
+        $this->call(SizeSeeder::class);
+
+        // Partner::factory(80)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

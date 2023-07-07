@@ -7,9 +7,6 @@
 
 }
 
-
-
-
 @font-face {
     font-family: 'proxima_novaregular';
     src: url('/assets/fonts/proxima_nova_font-webfont.woff2') format('woff2'),
@@ -18,9 +15,6 @@
     font-style: normal;
 
 }
-
-
-
 
 @font-face {
     font-family: 'saol_displayregular';

@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Smknstd\FakerPicsumImages\FakerPicsumImagesProvider as Faker;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Image>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Category>
  */
-class ImageFactory extends Factory
+class CategoryFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -22,7 +22,7 @@ class ImageFactory extends Factory
         $faker->addProvider(new Faker($faker));
 
         return [
-            'url' => 'products/' . $faker->image($dir = 'public/storage/products', $width = 640, $height = 480, $isFullPath = false)
+            'image' => 'categories/' . $faker->image($dir = 'public/storage/categories', $width = 640, $height = 480, $isFullPath = false)
         ];
     }
 }

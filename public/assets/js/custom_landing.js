@@ -42,3 +42,29 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
+
+// Funciones para la navbar
+window.addEventListener("scroll", function () {
+
+    // Declaracion de constantes
+    const nav = document.getElementById("header");
+    const offset = window.pageYOffset;
+    const menu = document.querySelectorAll(".menu-nav");
+    const logo = document.getElementById("logo");
+
+    // Condiciones si el offset pasa de 75px
+    if (offset > 75)
+    nav.classList.add("scroll"),
+    logo.classList.add("scroll"),
+    menu.forEach((element) => {
+        element.classList.add("scroll");
+    });
+    else
+    nav.classList.remove("scroll"),
+    logo.classList.remove("scroll"),
+    menu.forEach((element) => {
+        element.classList.remove("scroll");
+    });
+
+});

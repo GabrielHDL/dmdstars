@@ -17,14 +17,14 @@ class GenderSeeder extends Seeder
     {
         $genders = [
             [
-                'name' => 'Men',
-                'slug' => Str::slug('Men'),
-                'icon' => '<i class="fas fa-mobile-alt"></i>'
-            ],
-            [
                 'name' => 'Women',
                 'slug' => Str::slug('Women'),
-                'icon' => '<i class="fas fa-tv"></i>'
+                'icon' => '<i class="fa-solid fa-person-dress"></i>'
+            ],
+            [
+                'name' => 'Men',
+                'slug' => Str::slug('Men'),
+                'icon' => '<i class="fa-solid fa-person"></i>'
             ],
         ];
 

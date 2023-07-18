@@ -20,7 +20,7 @@ return new class extends Migration
             $table->text('description');
             $table->float('price');
             $table->integer('quantity')->nullable();
-            $table->enum('status', [Product::BORRADOR, Product::PUBLICADO])->default(Product::BORRADOR);
+            $table->enum('status', [Product::DRAFT, Product::PUBLISHED])->default(Product::PUBLISHED);
 
             $table->unsignedBigInteger('subcategory_id');
             $table->foreign('subcategory_id')->references('id')->on('subcategories');

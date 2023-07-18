@@ -8,9 +8,11 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index() {
-        $genders = Gender::latest('id')->get();
+    public function __invoke() {
+        $genders = Gender::all();
 
-        return view('home.index', compact('genders'));
+        $latestProducts = Product::where('status', Product::PUBLISHED)->take(8)->latest('id')->get();
+
+        return view('home.index', compact('genders', 'latestProducts'));
     }
 }

@@ -21,6 +21,9 @@
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    {{-- FlexSlider --}}
+    <link rel="stylesheet" href="{{ asset('vendor/flexslider/flexslider.css') }}">
+
     {{-- Favicon --}}
     <link rel="icon" href="{{ asset('assets/favicons/favicon32x32.png') }}" sizes="32x32" />
     <link rel="icon" href="{{ asset('assets/favicons/favicon192x192.png') }}" sizes="192x192" />
@@ -30,6 +33,12 @@
 
     <!-- Styles -->
     @livewireStyles
+
+    {{-- JQuery --}}
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+    {{-- FlexSlider --}}
+    <script src="{{ asset('vendor/flexslider/jquery.flexslider-min.js') }}"></script>
 </head>
 <style>
     @font-face {
@@ -61,24 +70,27 @@
 </style>
 
 <body class="font-sans antialiased w-full">
-    <div id="preloader"
-        class="transition-all ease-out duration-300 opacity-100 bg-platinum w-full h-screen flex justify-center items-center fixed top-0 z-[9999]">
-        <div class="w-full flex justify-center items-center flex-col">
-            <img class="h-20 mb-6 w-auto" src="{{ asset('assets/logos/svg/isotipo_gre.svg') }}" alt="Logo">
-            <div class="h-5 w-80 sm:w-96 relative max-w-xl rounded-full overflow-hidden">
-                <div class="w-full h-full bg-gray-200 absolute"></div>
-                <div id="bar" class="transition-all ease-in-out duration-[2000ms] h-full bg-deer relative w-0">
+    @if (request()->routeIs('home'))
+        <div id="preloader"
+            class="transition-all ease-out duration-300 opacity-100 bg-platinum w-full h-screen flex justify-center items-center fixed top-0 z-[9999]">
+            <div class="w-full flex justify-center items-center flex-col">
+                <img class="h-20 mb-6 w-auto" src="{{ asset('assets/logos/svg/isotipo_gre.svg') }}" alt="Logo">
+                <div class="h-5 w-80 sm:w-96 relative max-w-xl rounded-full overflow-hidden">
+                    <div class="w-full h-full bg-gray-200 absolute"></div>
+                    <div id="bar" class="transition-all ease-in-out duration-[2000ms] h-full bg-deer relative w-0">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+        @endif
     <x-banner />
 
-    <div class="min-h-screen bg-platinum">
+    <div class="min-h-screen bg-platinum text-rifleGreen">
         @livewire('navigation')
 
         <!-- Page Content -->
-        <main>
+            <main class="pt-16">
+
             {{ $slot }}
         </main>
     </div>
@@ -86,8 +98,12 @@
     @stack('modals')
 
     <x-footer />
+    
+    @stack('scripts')
 
-    <script rel="preload" src="{{ asset('assets/js/custom.js') }}"></script>
+    @if (request()->routeIs('home'))
+        <script rel="preload" src="{{ asset('assets/js/custom.js') }}"></script>
+    @endif
 
     @livewireScripts
 

@@ -18,23 +18,23 @@ class CategorySeeder extends Seeder
         $categories = [
             /* Men */
             [
-                'gender_id' => 1,
-                'name' => 'Wallets',
-                'slug' => Str::slug('Wallets'),
+                'gender_id' => 2,
+                'name' => 'Men Wallets',
+                'slug' => Str::slug('Men Wallets'),
             ],
 
             [
-                'gender_id' => 1,
+                'gender_id' => 2,
                 'name' => 'Bags',
                 'slug' => Str::slug('Bags'),
             ],
             [
-                'gender_id' => 1,
+                'gender_id' => 2,
                 'name' => 'Accesories',
-                'slug' => Str::slug('Accesories'),
+                'slug' => Str::slug('Women Accesories'),
             ],
             [
-                'gender_id' => 1,
+                'gender_id' => 2,
                 'name' => 'Men Clothes',
                 'slug' => Str::slug('Men Clothes'),
             ],
@@ -42,22 +42,22 @@ class CategorySeeder extends Seeder
             /* Women */
 
             [
-                'gender_id' => 2,
+                'gender_id' => 1,
                 'name' => 'Handbags',
                 'slug' => Str::slug('Handbags'),
             ],
             [
-                'gender_id' => 2,
-                'name' => 'Wallets',
-                'slug' => Str::slug('Wallets'),
+                'gender_id' => 1,
+                'name' => 'Women Wallets',
+                'slug' => Str::slug('Women Wallets'),
             ],
             [
-                'gender_id' => 2,
+                'gender_id' => 1,
                 'name' => 'Accesories',
-                'slug' => Str::slug('Accesories'),
+                'slug' => Str::slug('Women Accesories'),
             ],
             [
-                'gender_id' => 2,
+                'gender_id' => 1,
                 'name' => 'Women Clothes',
                 'slug' => Str::slug('Women Clothes'),
             ],

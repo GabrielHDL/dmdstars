@@ -17,13 +17,12 @@ class Gender extends Model
         return $this->hasMany(Category::class);
     }
 
-    // Relacion uno a muchos a traves
-    public function subcategories() {
-        return $this->hasManyThrough(Subcategory::class, Category::class);
-    }
-
     // Relacion uno a muchos a traves de varios modelos
     public function products() {
         return $this->hasManyDeep(Product::class, [Category::class, Subcategory::class]);
+    }
+
+    public function getRouteKeyName() {
+        return 'slug';
     }
 }

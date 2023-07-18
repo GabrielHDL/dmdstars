@@ -30,4 +30,8 @@ class Category extends Model
     public function gender() {
        return $this->belongsTo(Gender::class);
     }
+
+    public function getRouteKeyName() {
+        return 'slug';
+    }
 }

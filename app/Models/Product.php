@@ -9,8 +9,8 @@ class Product extends Model
 {
     use HasFactory;
 
-    const BORRADOR = 1;
-    const PUBLICADO = 2;
+    const DRAFT = 1;
+    const PUBLISHED = 2;
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
     // Relacion uno a muchos inversa

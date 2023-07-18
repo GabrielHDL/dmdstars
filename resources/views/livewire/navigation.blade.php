@@ -7,7 +7,7 @@
               </label>
               <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 bg-rifleGreen text-white hover:text-platinum shadow rounded-box w-52">
                 @foreach ($genders as $gender)
-                    <li><a>{!! $gender->icon !!}{{$gender->name}}</a></li>
+                    <li><a href="{{route('gender.show', $gender)}}">{{$gender->name}}</a></li>
                 @endforeach
               </ul>
             </div>

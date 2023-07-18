@@ -39,7 +39,7 @@ class ProductFactory extends Factory
             'subcategory_id' => $subcategory->id,
             'brand_id' => $brand->id,
             'quantity'=> $quantity,
-            'status' => 2
+            'status' => rand(1,2)
         ];
     }
 }

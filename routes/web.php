@@ -4,6 +4,9 @@ use App\Http\Controllers\GenderController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SearchController;
+use App\Http\Livewire\CreateOrder;
+use App\Http\Livewire\ShoppingCart;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,8 +24,16 @@ Route::get('/landing', [LandingController::class, 'index']);
 
 Route::get('/', HomeController::class)->name('home');
 
+Route::get('search', SearchController::class)->name('search');
+
 Route::get('/{gender}/all', [GenderController::class, 'show'])->name('gender.show');
 
 Route::get('gender/{gender}/category/{category}', [GenderController::class, 'showCategory'])->name('genderCategory.show');
 
 Route::get('/product/{product}', [ProductController::class, 'show'])->name('products.show');
+
+Route::get('/cart', ShoppingCart::class)->name('shopping-cart');
+
+Route::middleware(['auth'])->group(function() {
+    Route::get('orders/create', CreateOrder::class)->name('orders.create');
+});

@@ -30,8 +30,8 @@ class CategorySeeder extends Seeder
             ],
             [
                 'gender_id' => 2,
-                'name' => 'Accesories',
-                'slug' => Str::slug('Women Accesories'),
+                'name' => 'Men Accesories',
+                'slug' => Str::slug('Men Accesories'),
             ],
             [
                 'gender_id' => 2,
@@ -53,7 +53,7 @@ class CategorySeeder extends Seeder
             ],
             [
                 'gender_id' => 1,
-                'name' => 'Accesories',
+                'name' => 'Women Accesories',
                 'slug' => Str::slug('Women Accesories'),
             ],
             [

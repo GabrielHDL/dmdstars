@@ -3,7 +3,7 @@
         <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             @foreach ($products as $product)
                 <div class="bg-rifleGreen shadow transition-all ease-linear hover:shadow-lg hover:shadow-black/40">
-                    <a href="#">
+                    <a href="{{route('products.show', $product)}}">
                         <img class="pb-4" src="{{ Storage::url($product->images->first()->url) }}" alt="product image" />
                     </a>
                     <div class="px-5 pb-5">
@@ -18,8 +18,7 @@
                         <div class="flex items-center justify-between">
                             <span class="text-xl font-bold text-platinum">{{ '$' . $product->price }}</span>
                             <a href="{{route('products.show', $product)}}"
-                                class="border-none rounded-none text-white bg-goldenrod hover:bg-deer focus:ring-4 focus:outline-none focus:ring-deer uppercase text-sm px-5 py-2.5 text-center font-semibold">Add
-                                to cart</a>
+                                class="border-none rounded-none text-white bg-goldenrod hover:bg-deer focus:ring-4 focus:outline-none focus:ring-deer uppercase text-sm px-5 py-2.5 text-center font-semibold">More</a>
                         </div>
                     </div>
                 </div>

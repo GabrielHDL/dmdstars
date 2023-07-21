@@ -50,7 +50,7 @@
 
             @if ($order->status == 1)
             
-                <a class="ml-auto" href="{{route('orders.payment', $order)}}">
+                <a class="ml-auto text-white bg-goldenrod hover:bg-deer px-4 py-1 btn rounded-none border-none" href="{{route('orders.payment', $order)}}">
                     Go to pay
                 </a>
 
@@ -62,15 +62,19 @@
                 <div>
                     <p class="text-lg font-bold font-saol">Shipping</p>
 
-                    @if ($order->envio_type == 1)
+                    {{-- @if ($order->envio_type == 1)
                         <p class="text-sm">Los productos deben ser recogidos en tienda</p>
                         <p class="text-sm">Calle falsa 123</p>
                     @else
-                        <p class="text-sm">Los productos Serán enviados a:</p>
+                        <p class="text-sm">The product(s) will be sent to:</p>
                         <p class="text-sm">{{ $envio->address }}</p>
                         <p>{{ $envio->department }} - {{ $envio->city }} - {{ $envio->district }}
                         </p>
-                    @endif
+                    @endif --}}
+
+                    <p class="text-sm">The product(s) will be sent to:</p>
+                        <p class="text-sm">{{ $envio->address }}</p>
+                        <p>{{ $envio->department }} - {{ $envio->city }} - {{ $envio->district }}</p>
 
 
                 </div>

@@ -31,18 +31,18 @@ class CategoryFilter extends Component
     {
 
         $productsQuery = Product::query()->whereHas('subcategory.category', function(Builder $query){
-            $query->where('id', $this->category->id);
+            $query->where('id', $this->category->id)->where('status', Product::PUBLISHED);
         });
 
         if ($this->subcat) {
             $productsQuery = $productsQuery->whereHas('subcategory', function(Builder $query){
-                $query->where('slug', $this->subcat);
+                $query->where('slug', $this->subcat)->where('status', Product::PUBLISHED);
             });
         }
 
         if ($this->bra) {
             $productsQuery = $productsQuery->whereHas('brand', function(Builder $query){
-                $query->where('name', $this->bra);
+                $query->where('name', $this->bra)->where('status', Product::PUBLISHED);
             });
         }
 

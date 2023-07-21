@@ -18,6 +18,7 @@ class GenderController extends Controller
     }
 
     public function showCategory(Gender $gender, Category $category) {
+
         return view('genders.categories.show', compact('category'));
     }
 }

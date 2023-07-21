@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Gender;
+use App\Models\Order;
 use Livewire\Component;
 
 class Navigation extends Component
@@ -12,6 +13,8 @@ class Navigation extends Component
 
         $genders = Gender::all();
 
-        return view('livewire.navigation', compact('genders'));
+        $pending = Order::where('status', 1)->where('user_id', auth()->user()->id)->count();
+
+        return view('livewire.navigation', compact('genders', 'pending'));
     }
 }

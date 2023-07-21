@@ -1,4 +1,4 @@
-<div class="bg-rifleGreen fixed top-0 left-0 right-0 z-[999] shadow-md">
+<div class="bg-rifleGreen sticky top-0 left-0 right-0 z-[999] shadow-md">
     <div class="navbar container">
         <div class="navbar-start">
             <div class="dropdown">
@@ -59,7 +59,9 @@
                         </li>
                         <li>
                             <a class="justify-between" href="{{route('orders.index')}}">My Orders
-                                <span class="badge bg-goldenrod text-white border-0">New</span>
+                                @if ($pending)
+                                    <span class="badge bg-goldenrod text-white border-0">{{$pending}}</span>
+                                @endif
                             </a>
                         </li>
                         <li>

@@ -89,7 +89,7 @@
         @livewire('navigation')
 
         <!-- Page Content -->
-            <main class="pt-16">
+            <main>
 
             {{ $slot }}
         </main>

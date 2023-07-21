@@ -54,7 +54,7 @@
                                     alt="product image" />
                             </a>
                             <div class="px-5 pb-5">
-                                <a href="#">
+                                <a href="{{route('products.show', $product)}}">
                                     <h5 class="text-xl font-semibold tracking-tight font-saol text-platinum">
                                         {{ $product->name }}</h5>
                                 </a>
@@ -86,7 +86,7 @@
                                     alt="product image" />
                             </a>
                             <div class="p-5 w-full">
-                                <a href="#">
+                                <a href="{{route('products.show', $product)}}">
                                     <h5 class="text-xl font-semibold tracking-tight font-saol text-platinum">
                                         {{ $product->name }}</h5>
                                 </a>
@@ -98,7 +98,7 @@
                                         class="bg-deer text-platinum text-xs font-semibold px-2.5 py-0.5">{{ $product->subcategory->category->name }}</a>
                                 </div>
                                 <div class="flex items-center justify-between">
-                                    <span class="text-xl font-bold text-platinum">{{ '$' . $product->price }}</span>
+                                    <span class="text-xl font-bold text-platinum">{{ '$' . $product->price . ' USD' }}</span>
                                     <a href="{{route('products.show', $product)}}"
                                         class="border-none rounded-none text-white bg-goldenrod hover:bg-deer focus:ring-4 focus:outline-none focus:ring-deer uppercase text-sm px-5 py-2.5 text-center font-semibold">More</a>
                                 </div>

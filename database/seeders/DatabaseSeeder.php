@@ -28,18 +28,11 @@ class DatabaseSeeder extends Seeder
         $this->call(GenderSeeder::class);
         $this->call(CategorySeeder::class);
         $this->call(SubcategorySeeder::class);
-        // $this->call(BrandSeeder::class);
         $this->call(ProductSeeder::class);
         $this->call(ColorSeeder::class);
         $this->call(ColorProductSeeder::class);
         $this->call(SizeSeeder::class);
         $this->call(ColorSizeSeeder::class);
-
-        // Partner::factory(80)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        $this->call(DepartmentSeeder::class);
     }
 }

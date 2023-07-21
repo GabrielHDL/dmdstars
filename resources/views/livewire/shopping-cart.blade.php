@@ -81,7 +81,7 @@
                             </div>
                         </div>
                         <a href="{{ route('orders.create') }}"
-                            class="btn rounded-none border-none mt-6 w-full bg-goldenrod uppercase font-semibold py-1.5 text-white hover:bg-deer">Continue</a>
+                            class="btn rounded-none border-none mt-6 w-full bg-goldenrod uppercase font-semibold py-1.5 text-white hover:bg-deer">Create Order</a>
                     </div>
                 </div>
             @else

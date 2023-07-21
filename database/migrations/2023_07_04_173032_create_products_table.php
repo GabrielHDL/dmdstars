@@ -17,16 +17,20 @@ return new class extends Migration
 
             $table->string('name');
             $table->string('slug');
+
             $table->text('description');
+
             $table->float('price');
-            $table->integer('quantity')->nullable();
-            $table->enum('status', [Product::DRAFT, Product::PUBLISHED])->default(Product::PUBLISHED);
 
             $table->unsignedBigInteger('subcategory_id');
-            $table->foreign('subcategory_id')->references('id')->on('subcategories');
+            $table->foreign('subcategory_id')->references('id')->on('subcategories')->onDelete('cascade');
 
             $table->unsignedBigInteger('brand_id');
-            $table->foreign('brand_id')->references('id')->on('brands');
+            $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
+
+            $table->integer('quantity')->nullable();
+
+            $table->enum('status', [Product::DRAFT, Product::PUBLISHED])->default(Product::PUBLISHED);
 
             $table->timestamps();
         });

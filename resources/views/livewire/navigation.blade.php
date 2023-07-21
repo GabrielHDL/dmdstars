@@ -54,8 +54,16 @@
                     @auth
                         <li>
                             <a class="justify-between" href="{{route('profile.show')}}">Profile
+                                {{-- <span class="badge bg-goldenrod text-white border-0">New</span> --}}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="justify-between" href="{{route('orders.index')}}">My Orders
                                 <span class="badge bg-goldenrod text-white border-0">New</span>
                             </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('billings.index') }}">Billing</a>
                         </li>
                         <li>
                             <form method="POST" action="{{ route('logout') }}" class="mb-0" x-data>

@@ -50,7 +50,7 @@
 
     @if ($product_colors->count())
         
-        <div class="bg-platinum shadow-lg rounded-lg p-6">
+        <div class="bg-platinum text-rifleGreen shadow-lg rounded-lg p-6">
             <table>
                 <thead>
                     <tr>

@@ -46,7 +46,7 @@ class CategoryFilter extends Component
             });
         }
 
-        $products = $productsQuery->paginate(12);
+        $products = $productsQuery->orderBy('id', 'desc')->paginate(12);
 
         // $products = $this->category->products()->where('status', Product::PUBLISHED)->orderBy('id', 'desc')->paginate(12);
         return view('livewire.category-filter', compact('products'));

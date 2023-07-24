@@ -157,6 +157,19 @@
                     Update Product
                 </button>
             </div>
+            {{-- <div class="flex justify-end items-center mt-4">
+    
+                <x-action-message class="mr-3" on="saved">
+                    Actualizado
+                </x-action-message>
+    
+                <x-button
+                    wire:loading.attr="disabled"
+                    wire:target="save"
+                    wire:click="save">
+                    Actualizar producto
+                </x-button>
+            </div> --}}
         </div>
 
 
@@ -178,16 +191,17 @@
         <script>
             Dropzone.options.myAwesomeDropzone = {
                 headers: {
-                    'X-CSRF-TOKEN' : "{{ csrf_token() }}"
+                    'X-CSRF-TOKEN': "{{ csrf_token() }}"
                 },
                 dictDefaultMessage: '<span class="text-center"><span class="font-lg visible-xs-block visible-sm-block visible-lg-block"><span class="font-lg"><i class="fa fa-caret-right text-danger"></i> Drop images <span class="font-xs">to upload</span></span><span>&nbsp&nbsp<h4 class="display-inline"> (Or Click)</h4></span>',
                 paramName: "file",
                 maxFileSize: 2,
                 acceptedFiles: 'image/*',
-                complete: function(file){
+                resizeHeight: 960,
+                complete: function(file) {
                     this.removeFile(file);
                 },
-                queuecomplete: function(){
+                queuecomplete: function() {
                     Livewire.emit('refreshProduct');
                 }
             };

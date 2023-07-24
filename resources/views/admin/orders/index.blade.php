@@ -4,7 +4,7 @@
 
         <section class="grid grid-cols-4 gap-6 text-white">
            
-            <a href="{{ route('admin.orders.index') . "?status=2" }}" class="bg-gray-500 bg-opacity-75 rounded-lg px-12 pt-8 pb-4">
+            <a href="{{ route('admin.orders.index') . "?status=2" }}" class="bg-goldenrod hover:bg-deer bg-opacity-75 px-12 pt-8 pb-4">
                 <p class="text-center text-2xl">
                     {{$recibido}}
                 </p>
@@ -14,7 +14,7 @@
                 </p>
             </a>
 
-            <a href="{{ route('admin.orders.index') . "?status=3" }}" class="bg-yellow-500 bg-opacity-75 rounded-lg px-12 pt-8 pb-4">
+            <a href="{{ route('admin.orders.index') . "?status=3" }}" class="bg-goldenrod hover:bg-deer bg-opacity-75 px-12 pt-8 pb-4">
                 <p class="text-center text-2xl">
                     {{$enviado}}
                 </p>
@@ -24,7 +24,7 @@
                 </p>
             </a>
 
-            <a href="{{ route('admin.orders.index') . "?status=4" }}" class="bg-pink-500 bg-opacity-75 rounded-lg px-12 pt-8 pb-4">
+            <a href="{{ route('admin.orders.index') . "?status=4" }}" class="bg-goldenrod hover:bg-deer bg-opacity-75 px-12 pt-8 pb-4">
                 <p class="text-center text-2xl">
                     {{$entregado}}
                 </p>
@@ -34,7 +34,7 @@
                 </p>
             </a>
 
-            <a href="{{ route('admin.orders.index') . "?status=5" }}" class="bg-green-500 bg-opacity-75 rounded-lg px-12 pt-8 pb-4">
+            <a href="{{ route('admin.orders.index') . "?status=5" }}" class="bg-goldenrod hover:bg-deer bg-opacity-75 px-12 pt-8 pb-4">
                 <p class="text-center text-2xl">
                     {{$anulado}}
                 </p>
@@ -47,7 +47,7 @@
 
         @if ($orders->count())
         
-            <section class="bg-white shadow-lg rounded-lg px-12 py-8 mt-12 text-gray-700">
+            <section class="bg-platinum shadow-lg px-12 py-8 mt-12 text-rifleGreen">
                 <h1 class="text-2xl mb-4">Pedidos recientes</h1>
 
                 <ul>
@@ -57,19 +57,19 @@
                                 <span class="w-12 text-center">
                                     @switch($order->status)
                                         @case(1)
-                                            <i class="fas fa-business-time text-red-500 opacity-50"></i>
+                                            <i class="fas fa-business-time text-deer opacity-50"></i>
                                             @break
                                         @case(2)
-                                            <i class="fas fa-credit-card text-gray-500 opacity-50"></i>
+                                            <i class="fas fa-credit-card text-deer opacity-50"></i>
                                             @break
                                         @case(3)
-                                            <i class="fas fa-truck text-yellow-500 opacity-50"></i>
+                                            <i class="fas fa-truck text-deer opacity-50"></i>
                                             @break
                                         @case(4)
-                                            <i class="fas fa-check-circle text-pink-500 opacity-50"></i>
+                                            <i class="fas fa-check-circle text-deer opacity-50"></i>
                                             @break
                                         @case(5)
-                                            <i class="fas fa-times-circle text-green-500 opacity-50"></i>
+                                            <i class="fas fa-times-circle text-deer opacity-50"></i>
                                             @break
                                         @default
                                             
@@ -134,7 +134,7 @@
             </section>
 
         @else
-            <div class="bg-white shadow-lg rounded-lg px-12 py-8 mt-12 text-gray-700">
+            <div class="bg-white shadow-lg px-12 py-8 mt-12 text-gray-700">
                 <span class="font-bold text-lg">
                     No existe registros de ordenes
                 </span>

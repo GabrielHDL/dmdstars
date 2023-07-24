@@ -13,7 +13,11 @@ class Navigation extends Component
 
         $genders = Gender::all();
 
-        $pending = Order::where('status', 1)->where('user_id', auth()->user()->id)->count();
+        if (auth()->user()) {
+            $pending = Order::where('status', 1)->where('user_id', auth()->user()->id)->count();
+        } else {
+            $pending = "";
+        }
 
         return view('livewire.navigation', compact('genders', 'pending'));
     }

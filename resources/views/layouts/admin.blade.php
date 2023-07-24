@@ -12,9 +12,21 @@
         {{-- Font Awesome --}}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+        {{-- DROPZONE CSS --}}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.css" integrity="sha512-jU/7UFiaW5UBGODEopEqnbIAHOI8fO6T99m7Tsmqs2gkdujByJfkCbbfPSN4Wlqlb9TGnsuC0YgUgWkRBK7B9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
         {{-- Favicon --}}
         <link rel="icon" href="{{asset('assets/favicons/favicon32x32.png')}}" sizes="32x32" />
         <link rel="icon" href="{{asset('assets/favicons/favicon192x192.png')}}" sizes="192x192" />
+
+        {{-- ckeditor --}}
+        <script src="https://cdn.ckeditor.com/ckeditor5/28.0.0/classic/ckeditor.js"></script>
+
+        {{-- sweetalert2 --}}
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        {{-- DropZone --}}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.js" integrity="sha512-U2WE1ktpMTuRBPoCFDzomoIorbOyUv0sP8B+INA3EzNAhehbzED1rOJg6bCqPf/Tuposxb5ja/MAUnC8THSbLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -22,6 +34,34 @@
         <!-- Styles -->
         @livewireStyles
     </head>
+    <style>
+        @font-face {
+            font-family: 'proxima_novabold';
+            src: url('/assets/fonts/proximanova-bold-webfont.woff2') format('woff2'),
+                url('/assets/fonts/proximanova-bold-webfont.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+    
+        }
+    
+        @font-face {
+            font-family: 'proxima_novaregular';
+            src: url('/assets/fonts/proxima_nova_font-webfont.woff2') format('woff2'),
+                url('/assets/fonts/proxima_nova_font-webfont.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+    
+        }
+    
+        @font-face {
+            font-family: 'saol_displayregular';
+            src: url('/assets/fonts/saoldisplay-regular-webfont.woff2') format('woff2'),
+                url('/assets/fonts/saoldisplay-regular-webfont.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+    
+        }
+    </style>
     <body class="font-sans antialiased w-full">
         @if (Request::routeIs('admin.home'))
             <div id="preloader" class="transition-all ease-out duration-300 opacity-100 bg-rifleGreen w-full h-screen flex justify-center items-center fixed top-0 z-[9999]">
@@ -71,6 +111,8 @@
         @endif
 
         @livewireScripts
+
+        @stack('scripts')
 
     </body>
 </html>

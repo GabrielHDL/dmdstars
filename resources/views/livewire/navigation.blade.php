@@ -2,17 +2,23 @@
     <div class="navbar container">
         <div class="navbar-start">
             <div class="dropdown">
-              <label tabindex="0" class="btn btn-ghost hover:bg-deer/30 btn-circle">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 stroke-platinum" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
-              </label>
-              <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 bg-rifleGreen text-white hover:text-platinum shadow rounded-box w-52">
-                @foreach ($genders as $gender)
-                    <li><a href="{{route('gender.show', $gender)}}">{{$gender->name}}</a></li>
-                @endforeach
-              </ul>
+                <label tabindex="0" class="btn btn-ghost hover:bg-deer/30 btn-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 stroke-platinum" fill="none"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h7" />
+                    </svg>
+                </label>
+                <ul tabindex="0"
+                    class="menu menu-sm dropdown-content mt-3 z-[1] p-2 bg-rifleGreen text-white hover:text-platinum shadow rounded-box w-52">
+                    @foreach ($genders as $gender)
+                        <li><a class="text-platinum hover:text-gray-100" href="{{ route('gender.show', $gender) }}">{{ $gender->name }}</a></li>
+                    @endforeach
+                </ul>
             </div>
             <a id="logo" class="text-platinum" href="/">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 328.23 79.06" class="h-8 sm:h-10 w-auto fill-current" fill="none">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 328.23 79.06"
+                    class="h-8 sm:h-10 w-auto fill-current" fill="none">
                     <g id="objects">
                         <path
                             d="M31.18,20.18H15.94V58.83h15.3c12.05,0,20.45-7.65,20.45-19.36S43.29,20.18,31.18,20.18Zm0,31.4h-7V27.42h7.07c7.88,0,12.05,5.28,12.05,12C43.29,46.08,38.83,51.58,31.18,51.58Z" />
@@ -31,7 +37,7 @@
                     </g>
                 </svg>
             </a>
-          </div>
+        </div>
         {{-- <div class="navbar-center">
             
         </div> --}}
@@ -40,7 +46,7 @@
             @livewire('dropdown-cart')
             <div class="dropdown dropdown-end">
                 <label tabindex="0" class="btn btn-ghost hover:bg-deer/30 btn-circle avatar">
-                    <div class="w-10 rounded-full">
+                    <div class="w-8 rounded-full">
                         @auth
                             <img src="{{ Auth::user()->profile_photo_url }}" />
                         @else
@@ -50,34 +56,42 @@
                         @endauth
                     </div>
                 </label>
-                <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 bg-rifleGreen text-white hover:text-platinum shadow rounded-box w-52">
+                <ul tabindex="0"
+                    class="menu menu-sm dropdown-content mt-3 z-[1] p-2 bg-rifleGreen text-white hover:text-platinum shadow rounded-box w-52">
                     @auth
+                        <span class="ml-3 mt-2 text-goldenrod">{{ Auth::user()->name }}</span>
+
+                        @role('admin')
+                            <li>
+                                <a class="text-platinum hover:text-gray-100" href="{{ route('admin.index') }}">Admin Dashboard</a>
+                            </li>
+                        @endrole
                         <li>
-                            <a class="justify-between" href="{{route('profile.show')}}">Profile
+                            <a class="text-platinum hover:text-gray-100" href="{{ route('profile.show') }}">Profile
                                 {{-- <span class="badge bg-goldenrod text-white border-0">New</span> --}}
                             </a>
                         </li>
                         <li>
-                            <a class="justify-between" href="{{route('orders.index')}}">My Orders
+                            <a class="justify-between text-platinum hover:text-gray-100" href="{{ route('orders.index') }}">My Orders
                                 @if ($pending)
-                                    <span class="badge bg-goldenrod text-white border-0">{{$pending}}</span>
+                                    <span class="badge bg-goldenrod text-white border-0">{{ $pending }}</span>
                                 @endif
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('billings.index') }}">Billing</a>
+                            <a class="text-platinum hover:text-gray-100" href="{{ route('billings.index') }}">Billing</a>
                         </li>
                         <li>
                             <form method="POST" action="{{ route('logout') }}" class="mb-0" x-data>
                                 @csrf
-                                <a href="{{ route('logout') }}" @click.prevent="$root.submit();">
+                                <a class="text-deer" href="{{ route('logout') }}" @click.prevent="$root.submit();">
                                     {{ __('Log Out') }}
                                 </a>
                             </form>
                         </li>
                     @else
-                        <li><a href="{{route('register')}}">Register</a></li>
-                        <li><a href="{{route('login')}}">Login</a></li>
+                        <li><a class="text-platinum hover:text-gray-100" href="{{ route('register') }}">Register</a></li>
+                        <li><a class="text-platinum hover:text-gray-100" href="{{ route('login') }}">Login</a></li>
                     @endauth
                 </ul>
             </div>

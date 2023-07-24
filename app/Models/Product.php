@@ -52,7 +52,7 @@ class Product extends Model
 
     //relacion uno a muchos polimoefica
     public function images() {
-        return $this->morphMany(Image::class, "imageable");
+        return $this->morphMany(Image::class, 'imageable');
     }
 
     //URL AMIGABLES

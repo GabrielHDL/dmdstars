@@ -1,5 +1,5 @@
 <div>
-    <div class="my-12 bg-platinum shadow-lg rounded-lg p-6">
+    <div class="my-12 bg-platinum shadow-lg p-6">
 
 
         {{-- Color --}}
@@ -50,7 +50,7 @@
 
     @if ($product_colors->count())
         
-        <div class="bg-platinum text-rifleGreen shadow-lg rounded-lg p-6">
+        <div class="bg-platinum text-rifleGreen shadow-lg p-6">
             <table>
                 <thead>
                     <tr>

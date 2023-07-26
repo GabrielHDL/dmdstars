@@ -1,7 +1,7 @@
 <div>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight capitalize">
-            Departamento: {{$department->name}}
+            Department: {{$department->name}}
         </h2>
     </x-slot>
 
@@ -10,17 +10,17 @@
         <x-form-section submit="save" class="mb-6">
     
             <x-slot name="title">
-                Agregar una nueva ciudad
+                Add a new city
             </x-slot>
     
             <x-slot name="description">
-                Complete la información necesaria para poder agregar un nueva ciudad
+                Complete the necessary information to be able to add a new city
             </x-slot>
     
             <x-slot name="form">
                 <div class="col-span-6 sm:col-span-4">
                     <x-label>
-                        Nombre
+                        Name
                     </x-label>
     
                     <x-input wire:model.defer="createForm.name" type="text" class="w-full mt-1" />
@@ -30,7 +30,7 @@
 
                 <div class="col-span-6 sm:col-span-4">
                     <x-label>
-                        Costo
+                        Shipping Cost
                     </x-label>
     
                     <x-input wire:model.defer="createForm.cost" type="number" class="w-full mt-1" />
@@ -42,11 +42,11 @@
             <x-slot name="actions">
     
                 <x-action-message class="mr-3" on="saved">
-                    Ciudad agregada
+                    City Added
                 </x-action-message>
     
                 <x-button>
-                    Agregar
+                    Add
                 </x-button>
             </x-slot>
         </x-form-section>
@@ -54,11 +54,11 @@
         {{-- Mostrar Departamentos --}}
         <x-action-section>
             <x-slot name="title">
-                Lista de ciudades
+                City List
             </x-slot>
     
             <x-slot name="description">
-                Aquí encontrará todas las ciudades agregadas
+                Here you will find all the added cities
             </x-slot>
     
             <x-slot name="content">
@@ -66,8 +66,8 @@
                 <table class="text-gray-600">
                     <thead class="border-b border-gray-300">
                         <tr class="text-left">
-                            <th class="py-2 w-full">Nombre</th>
-                            <th class="py-2">Acción</th>
+                            <th class="py-2 w-full">Name</th>
+                            <th class="py-2">Action</th>
                         </tr>
                     </thead>
     
@@ -82,8 +82,8 @@
                                 </td>
                                 <td class="py-2">
                                     <div class="flex divide-x divide-gray-300 font-semibold">
-                                        <a class="pr-2 hover:text-blue-600 cursor-pointer" wire:click="edit({{$city}})">Editar</a>
-                                        <a class="pl-2 hover:text-red-600 cursor-pointer" wire:click="$emit('deleteCity', {{$city->id}})">Eliminar</a>
+                                        <a class="pr-2 hover:text-blue-600 cursor-pointer" wire:click="edit({{$city}})">Edit</a>
+                                        <a class="pl-2 hover:text-red-600 cursor-pointer" wire:click="$emit('deleteCity', {{$city->id}})">Delete</a>
                                     </div>
                                 </td>
                             </tr>
@@ -98,7 +98,7 @@
         <x-dialog-modal wire:model="editForm.open">
     
             <x-slot name="title">
-                Editar departamento
+                Edit Department
             </x-slot>
     
             <x-slot name="content">
@@ -107,7 +107,7 @@
                    
                     <div>
                         <x-label>
-                            Nombre
+                            Name
                         </x-label>
     
                         <x-input wire:model="editForm.name" type="text" class="w-full mt-1" />
@@ -117,7 +117,7 @@
 
                     <div>
                         <x-label>
-                            Costo
+                            Shipping Cost
                         </x-label>
     
                         <x-input wire:model="editForm.cost" type="text" class="w-full mt-1" />
@@ -131,7 +131,7 @@
     
             <x-slot name="footer">
                 <x-danger-button wire:click="update" wire:loading.attr="disabled" wire:target="update">
-                    Actualizar
+                    Update
                 </x-danger-button>
             </x-slot>
     

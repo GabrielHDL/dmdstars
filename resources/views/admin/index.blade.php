@@ -10,25 +10,25 @@
             <div class="sm:px-8 grid sm:grid-cols-2 md:grid-cols-4 gap-4">
 
                 <a href="{{route('admin.landing-pendings')}}">
-                    <div class="bg-amber-800 py-4 px-10 rounded-lg shadow-lg text-lg font-proximaBold text-white hover:shadow-black/50 transition-all ease-in-out flex">
+                    <div class="bg-amber-800 py-4 px-10 shadow-lg text-lg font-proximaBold text-white hover:shadow-black/50 transition-all ease-in-out flex">
                         Pendings <span class="text-white text-xl ml-auto">{{$pending->count()}}</span>
                     </div>
                 </a>
                 
                 <a href="{{route('admin.landing-prospects')}}">
-                    <div class="bg-deer py-4 px-10 rounded-lg shadow-lg text-lg font-proximaBold text-white hover:shadow-black/50 transition-all ease-in-out flex">
+                    <div class="bg-deer py-4 px-10 shadow-lg text-lg font-proximaBold text-white hover:shadow-black/50 transition-all ease-in-out flex">
                         Prospects <span class="text-white text-xl ml-auto">{{$prospects->count()}}</span>
                     </div>
                 </a>
 
                 <a href="{{route('admin.landing-partners')}}">
-                    <div class="bg-green-800 py-4 px-10 rounded-lg shadow-lg text-lg font-proximaBold text-white hover:shadow-black/50 transition-all ease-in-out flex">
+                    <div class="bg-green-800 py-4 px-10 shadow-lg text-lg font-proximaBold text-white hover:shadow-black/50 transition-all ease-in-out flex">
                         Partners <span class="text-white text-xl ml-auto">{{$partners->count()}}</span>
                     </div>
                 </a>
 
                 <a href="{{route('admin.landing-rejects')}}">
-                    <div class="bg-red-700 py-4 px-10 rounded-lg shadow-lg text-lg font-proximaBold text-white hover:shadow-black/50 transition-all ease-in-out flex">
+                    <div class="bg-red-700 py-4 px-10 shadow-lg text-lg font-proximaBold text-white hover:shadow-black/50 transition-all ease-in-out flex">
                         Rejects <span class="text-white text-xl ml-auto">{{$rejected->count()}}</span>
                     </div>
                 </a>

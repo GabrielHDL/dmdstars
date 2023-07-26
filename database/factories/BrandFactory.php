@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Smknstd\FakerPicsumImages\FakerPicsumImagesProvider as Faker;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Brand>
@@ -18,12 +17,8 @@ class BrandFactory extends Factory
     public function definition(): array
     {
 
-        $faker = \Faker\Factory::create();
-        $faker->addProvider(new Faker($faker));
-
         return [
-            'name' => $this->faker->word(),
-            'image' => 'brands/' . $faker->image($dir = 'public/storage/brands', $width = 640, $height = 480, $isFullPath = false),
+            'name' => 'DMD Stars',
         ];
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin;
 
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\Gender;
 use App\Models\Product;
 use App\Models\Subcategory;
 use Illuminate\Database\Eloquent\Builder;
@@ -12,12 +13,13 @@ use Livewire\Component;
 
 class CreateProduct extends Component
 {
-    public $categories, $subcategories = [], $brands = [];
-    public $category_id = "", $subcategory_id = "", $brand_id = "";
+    public $genders, $categories = [], $subcategories = [], $brands = [];
+    public $gender_id = "", $category_id = "", $subcategory_id = "", $brand_id = "";
     public $name, $slug, $description, $price, $quantity;
 
 
     protected $rules = [
+        'gender_id' => 'required',
         'category_id' => 'required',
         'subcategory_id' => 'required',
         'name' => 'required',
@@ -26,6 +28,12 @@ class CreateProduct extends Component
         'brand_id' => 'required',
         'price' => 'required',
     ];
+
+    public function updatedGenderId($value){
+        $this->categories = Category::where('gender_id', $value)->get();
+
+        $this->reset(['category_id', 'subcategory_id', 'brand_id']);
+    }
 
     public function updatedCategoryId($value){
         $this->subcategories = Subcategory::where('category_id', $value)->get();
@@ -47,7 +55,9 @@ class CreateProduct extends Component
 
     public function mount(){
 
-        $this->categories = Category::all();
+        $this->genders = Gender::all();
+
+        // $this->categories = Category::all();
 
     }
 

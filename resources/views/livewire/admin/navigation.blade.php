@@ -1,5 +1,5 @@
 <div class="p-4 fixed top-0 left-0 right-0 z-[999]">
-    <div class="navbar bg-platinum rounded-lg shadow-lg container">
+    <div class="navbar bg-platinum shadow-lg container">
         <div class="navbar-start">
             <div class="dropdown">
                 <label tabindex="0" class="text-rifleGreen btn btn-ghost lg:hidden">
@@ -19,28 +19,28 @@
                     @else
                         <li><a href="{{ route('admin.landing') }}">Landing</a></li>
                         <x-nav-link href="{{route('admin.index')}}" :active="request()->routeIs('admin.index')">
-                            Productos
+                            Products
                         </x-nav-link>
     
     
                         <x-nav-link href="{{route('admin.orders.index')}}" :active="request()->routeIs('admin.orders.*')">
-                            Ordenes
+                            Orders
                         </x-nav-link>
     
                         <x-nav-link href="{{route('admin.categories.index')}}" :active="request()->routeIs('admin.categories.*')">
-                            Categorias
+                            Categories
                         </x-nav-link>
     
                         <x-nav-link href="{{route('admin.brands.index')}}" :active="request()->routeIs('admin.brands.*')">
-                            Marcas
+                            Brands
                         </x-nav-link>
     
                         <x-nav-link href="{{route('admin.departments.index')}}" :active="request()->routeIs('admin.departments.index')">
-                            Departamentos
+                            Departments
                         </x-nav-link>
     
                         <x-nav-link href="{{route('admin.users.index')}}" :active="request()->routeIs('admin.users.index')">
-                            Usuarios
+                            Users
                         </x-nav-link>
                     @endif
                 </ul>
@@ -53,35 +53,34 @@
         <div class="navbar-center hidden lg:flex">
             <ul class="menu menu-horizontal text-rifleGreen px-1">
                 @if (Request::routeIs('admin.landing*'))
-                    <li><a href="{{ route('admin.landing-pendings') }}">Pendings</a></li>
-                    <li><a href="{{ route('admin.landing-prospects') }}">Prospects</a></li>
-                    <li><a href="{{ route('admin.landing-partners') }}">Partners</a></li>
-                    <li><a href="{{ route('admin.landing-rejects') }}">Rejects</a></li>
+                    <x-nav-link href="{{ route('admin.landing-pendings') }}" :active="request()->routeIs('admin.landing-pendings')">Pendings</x-nav-link>
+                    <x-nav-link href="{{ route('admin.landing-prospects') }}" :active="request()->routeIs('admin.landing-prospects')">Prospects</x-nav-link>
+                    <x-nav-link href="{{ route('admin.landing-partners') }}" :active="request()->routeIs('admin.landing-partners')">Partners</x-nav-link>
+                    <x-nav-link href="{{ route('admin.landing-rejects') }}" :active="request()->routeIs('admin.landing-rejects')">Rejects</x-nav-link>
                 @else
-                    <li><a href="{{ route('admin.landing') }}">Landing</a></li>
+                    <x-nav-link href="{{ route('admin.landing') }}">Landing</x-nav-link>
                     <x-nav-link href="{{route('admin.index')}}" :active="request()->routeIs('admin.index')">
-                        Productos
+                        Products
                     </x-nav-link>
 
-
                     <x-nav-link href="{{route('admin.orders.index')}}" :active="request()->routeIs('admin.orders.*')">
-                        Ordenes
+                        Orders
                     </x-nav-link>
 
                     <x-nav-link href="{{route('admin.categories.index')}}" :active="request()->routeIs('admin.categories.*')">
-                        Categorias
+                        Categories
                     </x-nav-link>
 
                     <x-nav-link href="{{route('admin.brands.index')}}" :active="request()->routeIs('admin.brands.*')">
-                        Marcas
+                        Brands
                     </x-nav-link>
 
                     <x-nav-link href="{{route('admin.departments.index')}}" :active="request()->routeIs('admin.departments.index')">
-                        Departamentos
+                        Departments
                     </x-nav-link>
 
                     <x-nav-link href="{{route('admin.users.index')}}" :active="request()->routeIs('admin.users.index')">
-                        Usuarios
+                        Users
                     </x-nav-link>
                 @endif
             </ul>

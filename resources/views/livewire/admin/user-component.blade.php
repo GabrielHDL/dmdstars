@@ -97,7 +97,7 @@
 
             @else
                 <div class="px-6 py-4">
-                    No hay ningún registro coincidente
+                    There is no matching record
                 </div>
             @endif
 

@@ -51,7 +51,20 @@
         @livewire('admin.status-product', ['product' => $product], key('status-product-' . $product->id))
 
         <div class="bg-platinum shadow-xl p-6">
-            <div class="grid grid-cols-2 gap-6 mb-4">
+            <div class="grid sm:grid-cols-3 gap-6 mb-4">
+                <div>
+                    <x-label value="Genders" />
+                    <select class="w-full text-deer" wire:model="gender_id">
+                        <option value="" selected disabled>Select Gender</option>
+
+                        @foreach ($genders as $gender)
+                            <option value="{{ $gender->id }}">{{ $gender->name }}</option>
+                        @endforeach
+                    </select>
+
+                    <x-input-error for="gender_id" />
+                </div>
+                
                 <div>
                     <x-label value="Categories" />
                     <select class="w-full text-deer" wire:model="category_id">
@@ -135,7 +148,6 @@
 
             @if ($this->subcategory)
 
-
                 @if (!$this->subcategory->color && !$this->subcategory->size)
                     <div>
                         <x-label value="Quantity" />
@@ -152,24 +164,11 @@
                     Updated
                 </x-action-message>
 
-                <button type="submit" class="btn border-none rounded-none bg-goldenrod hover:bg-deer text-platinum"
+                <x-button class="btn border-none rounded-none bg-goldenrod hover:bg-deer text-white"
                     wire:loading.attr="disabled" wire:target="save" wire:click="save">
                     Update Product
-                </button>
-            </div>
-            {{-- <div class="flex justify-end items-center mt-4">
-    
-                <x-action-message class="mr-3" on="saved">
-                    Actualizado
-                </x-action-message>
-    
-                <x-button
-                    wire:loading.attr="disabled"
-                    wire:target="save"
-                    wire:click="save">
-                    Actualizar producto
                 </x-button>
-            </div> --}}
+            </div>
         </div>
 
 
@@ -229,7 +228,7 @@
                     }
                 })
 
-            })
+            });
 
             Livewire.on('deleteSize', sizeId => {
 
@@ -254,7 +253,7 @@
                     }
                 })
 
-            })
+            });
 
             Livewire.on('deletePivot', pivot => {
                 Swal.fire({
@@ -277,7 +276,7 @@
                         )
                     }
                 })
-            })
+            });
 
             Livewire.on('deleteColorSize', pivot => {
                 Swal.fire({
@@ -300,7 +299,7 @@
                         )
                     }
                 })
-            })
+            });
         </script>
     @endpush
 

@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin;
 
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\Gender;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 
@@ -16,12 +17,12 @@ class CreateCategory extends Component
 
     use WithFileUploads;
 
-    public $brands, $categories, $category, $rand;
+    public $genders, $brands, $categories, $category, $rand;
 
     protected $listeners = ['delete'];
 
     public $createForm = [
-        
+        'gender' => "",
         'name' => null,
         'slug' => null,
         'icon' => null,
@@ -42,6 +43,7 @@ class CreateCategory extends Component
 
     protected $rules = [
         'createForm.name' => 'required',
+        'createForm.gender' => 'required',
         'createForm.slug' => 'required|unique:categories,slug',
         'createForm.icon' => 'required',
         'createForm.image' => 'required|image|max:1024',
@@ -50,11 +52,13 @@ class CreateCategory extends Component
 
     protected $validationAttributes = [
         'createForm.name' => 'nombre',
+        'createForm.gender' => 'gender',
         'createForm.slug' => 'slug',
         'createForm.icon' => 'ícono',
         'createForm.image' => 'imagen',
         'createForm.brands' => 'marcas',
         'editForm.name' => 'nombre',
+        'editForm.gender' => 'gender',
         'editForm.slug' => 'slug',
         'editForm.icon' => 'ícono',
         'editImage' => 'imagen',
@@ -65,6 +69,8 @@ class CreateCategory extends Component
         $this->getBrands();
         $this->getCategories();
         $this->rand = rand();
+
+        $this->genders = Gender::all();
     }
 
     public function updatedCreateFormName($value){
@@ -89,6 +95,7 @@ class CreateCategory extends Component
         $image = $this->createForm['image']->store('categories');
 
         $category = Category::create([
+            'gender_id' => $this->createForm['gender'],
             'name' => $this->createForm['name'],
             'slug' => $this->createForm['slug'],
             'icon' => $this->createForm['icon'],

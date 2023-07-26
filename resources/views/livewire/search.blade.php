@@ -8,7 +8,7 @@
     </form>
 
     <div class="absolute mt-3 hidden" :class="{ 'hidden' : !$wire.open }" @click.away="$wire.open = false">
-        <div class="bg-rifleGreen text-platinum rounded-lg shadow-lg">
+        <div class="bg-rifleGreen text-platinum shadow-lg">
             <div class="px-4  py-3 space-y-1">
                 @forelse ($products as $product)
                     <a href="{{ route('products.show', $product) }}" class="flex">

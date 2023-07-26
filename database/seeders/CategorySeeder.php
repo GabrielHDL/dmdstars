@@ -66,7 +66,7 @@ class CategorySeeder extends Seeder
         foreach ($categories as $category) {
             $category = Category::factory(1)->create($category)->first();
 
-            $brands = Brand::factory(4)->create();
+            $brands = Brand::factory(1)->create();
 
             foreach ($brands as $brand) {
                 $brand->categories()->attach($category->id);

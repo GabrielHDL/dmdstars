@@ -3,17 +3,17 @@
     <x-form-section submit="save" class="mb-6">
 
         <x-slot name="title">
-            Agregar un nuevo departamento
+            <p class="title__admin">Add a new department</p>
         </x-slot>
 
         <x-slot name="description">
-            Complete la información necesaria para poder agregar un nuevo departamento
+            <p class="text-goldenrod">Complete the necessary information to be able to add a new department</p>
         </x-slot>
 
         <x-slot name="form">
             <div class="col-span-6 sm:col-span-4">
                 <x-label>
-                    Nombre
+                    Name
                 </x-label>
 
                 <x-input wire:model.defer="createForm.name" type="text" class="w-full mt-1" />
@@ -25,11 +25,11 @@
         <x-slot name="actions">
 
             <x-action-message class="mr-3" on="saved">
-                Departamento agregado
+                Department Added
             </x-action-message>
 
             <x-button>
-                Agregar
+                Add
             </x-button>
         </x-slot>
     </x-form-section>
@@ -37,11 +37,11 @@
     {{-- Mostrar Departamentos --}}
     <x-action-section>
         <x-slot name="title">
-            Lista de Departamentos
+            <p class="title__admin">Department List</p>
         </x-slot>
 
         <x-slot name="description">
-            Aquí encontrará todas los departamentos agregados
+            <p class="text-goldenrod">Here you will find all the added departments</p>
         </x-slot>
 
         <x-slot name="content">

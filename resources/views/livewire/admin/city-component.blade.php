@@ -1,7 +1,7 @@
 <div>
-    <header>
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight capitalize">
-            Ciudad: {{$city->name}}
+    <header class="container">
+        <h2 class="text-xl text-platinum font-bold font-saol leading-tight capitalize">
+            City: {{$city->name}}
         </h2>
     </header>
 
@@ -10,20 +10,20 @@
         <x-form-section submit="save" class="mb-6">
     
             <x-slot name="title">
-                Agregar una nueva distrito
+                <p class="title__admin">Add new Disctrict</p>
             </x-slot>
     
             <x-slot name="description">
-                Complete la información necesaria para poder agregar un nuevo distrito
+                <p class="text-goldenrod">Fill in the necessary information to be able to add a new district</p>
             </x-slot>
     
             <x-slot name="form">
                 <div class="col-span-6 sm:col-span-4">
                     <x-label>
-                        Nombre
+                        Name
                     </x-label>
     
-                    <x-input wire:model.defer="createForm.name" type="text" class="w-full mt-1" />
+                    <x-input wire:model.defer="createForm.name" type="text" class="w-full mt-1 text-deer" />
     
                     <x-input-error for="createForm.name" />
                 </div>
@@ -33,11 +33,11 @@
             <x-slot name="actions">
     
                 <x-action-message class="mr-3" on="saved">
-                    Distrito agregado
+                    Distritc Added
                 </x-action-message>
     
                 <x-button>
-                    Agregar
+                    Add
                 </x-button>
             </x-slot>
         </x-form-section>
@@ -45,11 +45,11 @@
         {{-- Mostrar Departamentos --}}
         <x-action-section>
             <x-slot name="title">
-                Lista de distritos
+                <p class="title__admin">District List</p>
             </x-slot>
     
             <x-slot name="description">
-                Aquí encontrará todas los distritos agregados
+                <p class="text-goldenrod">Here you will find all the added districts</p>
             </x-slot>
     
             <x-slot name="content">
@@ -57,8 +57,8 @@
                 <table class="text-gray-600">
                     <thead class="border-b border-gray-300">
                         <tr class="text-left">
-                            <th class="py-2 w-full">Nombre</th>
-                            <th class="py-2">Acción</th>
+                            <th class="py-2 w-full">Name</th>
+                            <th class="py-2">Action</th>
                         </tr>
                     </thead>
     
@@ -74,8 +74,8 @@
                                 </td>
                                 <td class="py-2">
                                     <div class="flex divide-x divide-gray-300 font-semibold">
-                                        <a class="pr-2 hover:text-blue-600 cursor-pointer" wire:click="edit({{$district}})">Editar</a>
-                                        <a class="pl-2 hover:text-red-600 cursor-pointer" wire:click="$emit('deleteDistrict', {{$district->id}})">Eliminar</a>
+                                        <a class="pr-2 hover:text-blue-600 cursor-pointer" wire:click="edit({{$district}})">Edit</a>
+                                        <a class="pl-2 hover:text-red-600 cursor-pointer" wire:click="$emit('deleteDistrict', {{$district->id}})">Delete</a>
                                     </div>
                                 </td>
                             </tr>
@@ -90,7 +90,7 @@
         <x-dialog-modal wire:model="editForm.open">
     
             <x-slot name="title">
-                Editar distrito
+                Edit district
             </x-slot>
     
             <x-slot name="content">
@@ -99,7 +99,7 @@
                    
                     <div>
                         <x-label>
-                            Nombre
+                            Name
                         </x-label>
     
                         <x-input wire:model="editForm.name" type="text" class="w-full mt-1" />
@@ -113,7 +113,7 @@
     
             <x-slot name="footer">
                 <x-danger-button wire:click="update" wire:loading.attr="disabled" wire:target="update">
-                    Actualizar
+                    Update
                 </x-danger-button>
             </x-slot>
     

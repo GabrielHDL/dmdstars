@@ -1,5 +1,5 @@
 <div class="mt-4 text-rifleGreen">
-    <div class="bg-gray-100 shadow-lg rounded-lg p-6">
+    <div class="bg-gray-100 shadow-lg p-6">
 
 
         {{-- Color --}}

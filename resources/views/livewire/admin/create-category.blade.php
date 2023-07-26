@@ -1,20 +1,34 @@
 <div>
     <x-form-section submit="save" class="mb-6">
         <x-slot name="title">
-            Crear nueva categoría
+            <p class="text-platinum font-saol font-bold">Create new Category</p>
         </x-slot>
 
         <x-slot name="description">
-            Complete la información necesaria para poder crear una nueva categoría
+            <p class="text-goldenrod">Complete the necessary information to be able to create a new category</p>
         </x-slot>
 
         <x-slot name="form">
             <div class="col-span-6 sm:col-span-4">
                 <x-label>
-                    Nombre
+                    Gender
                 </x-label>
 
-                <x-input wire:model="createForm.name" type="text" class="w-full mt-1" />
+                <select wire:model="createForm.gender" class="w-full mt-1 text-deer" name="Gender" id="">
+                    <option selected disabled value="">Select Gender</option>
+                    @foreach ($genders as $gender)
+                        <option value="{{$gender->id}}">{{$gender->name}}</option>
+                    @endforeach
+                </select>
+
+                <x-input-error for="createForm.gender" />
+            </div>
+            <div class="col-span-6 sm:col-span-4">
+                <x-label>
+                    Name
+                </x-label>
+
+                <x-input wire:model="createForm.name" type="text" class="w-full mt-1 text-deer" />
 
                 <x-input-error for="createForm.name" />
             </div>
@@ -24,22 +38,22 @@
                     Slug
                 </x-label>
 
-                <x-input disabled wire:model="createForm.slug" type="text" class="w-full mt-1 bg-gray-100" />
+                <x-input disabled wire:model="createForm.slug" type="text" class="w-full mt-1 bg-gray-100 text-deer" />
                 <x-input-error for="createForm.slug" />
             </div>
 
             <div class="col-span-6 sm:col-span-4">
                 <x-label>
-                    Ícono
+                    Icon
                 </x-label>
 
-                <x-input wire:model.defer="createForm.icon" type="text" class="w-full mt-1" />
+                <x-input wire:model.defer="createForm.icon" type="text" class="w-full mt-1 text-deer" />
                 <x-input-error for="createForm.icon" />
             </div>
 
             <div class="col-span-6 sm:col-span-4">
                 <x-label>
-                    Marcas
+                    Brands
                 </x-label>
 
                 <div class="grid grid-cols-4">
@@ -60,7 +74,7 @@
 
             <div class="col-span-6 sm:col-span-4">
                 <x-label>
-                    Imagen
+                    Image
                 </x-label>
 
                 <input wire:model="createForm.image" accept="image/*" type="file" class="mt-1" name="" id="{{$rand}}">
@@ -72,22 +86,22 @@
         <x-slot name="actions">
 
             <x-action-message class="mr-3" on="saved">
-                Categoría creada
+                Category Created
             </x-action-message>
 
             <x-button>
-                Agregar
+                Add
             </x-button>
         </x-slot>
     </x-form-section>
 
     <x-action-section>
         <x-slot name="title">
-            Lista de categorías
+            <p class="text-platinum font-saol font-bold">Category List</p>
         </x-slot>
 
         <x-slot name="description">
-            Aquí encontrará todas las categorías agregadas
+            <p class="text-goldenrod">Here you will find all categories added</p>
         </x-slot>
 
         <x-slot name="content">
@@ -95,8 +109,8 @@
             <table class="text-gray-600">
                 <thead class="border-b border-gray-300">
                     <tr class="text-left">
-                        <th class="py-2 w-full">Nombre</th>
-                        <th class="py-2">Acción</th>
+                        <th class="py-2 w-full">Name</th>
+                        <th class="py-2">Action</th>
                     </tr>
                 </thead>
 
@@ -108,14 +122,14 @@
                                     {!!$category->icon!!}
                                 </span>
 
-                                <a href="{{route('admin.categories.show', $category)}}" class="uppercase underline hover:text-blue-600">
+                                <a href="{{route('admin.categories.show', $category)}}" class="uppercase underline hover:text-deer">
                                     {{$category->name}}
                                 </a>
                             </td>
                             <td class="py-2">
                                 <div class="flex divide-x divide-gray-300 font-semibold">
-                                    <a class="pr-2 hover:text-blue-600 cursor-pointer" wire:click="edit('{{$category->slug}}')">Editar</a>
-                                    <a class="pl-2 hover:text-red-600 cursor-pointer" wire:click="$emit('deleteCategory', '{{$category->slug}}')">Eliminar</a>
+                                    <a class="pr-2 hover:text-blue-600 cursor-pointer" wire:click="edit('{{$category->slug}}')">Edit</a>
+                                    <a class="pl-2 hover:text-red-600 cursor-pointer" wire:click="$emit('deleteCategory', '{{$category->slug}}')">Delete</a>
                                 </div>
                             </td>
                         </tr>
@@ -129,7 +143,7 @@
     <x-dialog-modal wire:model="editForm.open">
 
         <x-slot name="title">
-            Editar categoría
+            Edit Category
         </x-slot>
 
         <x-slot name="content">
@@ -146,7 +160,7 @@
 
                 <div>
                     <x-label>
-                        Nombre
+                        Name
                     </x-label>
 
                     <x-input wire:model="editForm.name" type="text" class="w-full mt-1" />
@@ -165,7 +179,7 @@
 
                 <div>
                     <x-label>
-                        Ícono
+                        Icon
                     </x-label>
 
                     <x-input wire:model.defer="editForm.icon" type="text" class="w-full mt-1" />
@@ -174,7 +188,7 @@
 
                 <div>
                     <x-label>
-                        Marcas
+                        Brands
                     </x-label>
 
                     <div class="grid grid-cols-4">
@@ -195,7 +209,7 @@
 
                 <div>
                     <x-label>
-                        Imagen
+                        Image
                     </x-label>
 
                     <input wire:model="editImage" accept="image/*" type="file" class="mt-1" name="" id="{{$rand}}">
@@ -206,7 +220,7 @@
 
         <x-slot name="footer">
             <x-danger-button wire:click="update" wire:loading.attr="disabled" wire:target="editImage, update">
-                Actualizar
+                Update
             </x-danger-button>
         </x-slot>
 

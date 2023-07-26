@@ -1,5 +1,5 @@
 <div class="text-rifleGreen">
-    <div class="bg-platinum shadow-lg rounded-lg p-6 mt-12">
+    <div class="bg-platinum shadow-lg p-6 mt-12">
         <div>
             <x-label>
                 Size
@@ -17,10 +17,9 @@
         </div>
     </div>
 
-
     <ul class="mt-12 space-y-4">
         @foreach ($sizes as $size)
-            <li class="bg-platinum shadow-lg rounded-lg p-6" wire:key="size-{{ $size->id }}">
+            <li class="bg-platinum shadow-lg p-6" wire:key="size-{{ $size->id }}">
                 <div class="flex items-center">
                     <span class="text-xl font-medium">Size: {{ $size->name }}</span>
 
@@ -42,7 +41,6 @@
             </li>
         @endforeach
     </ul>
-
 
     <x-dialog-modal wire:model="open">
         <x-slot name="title">

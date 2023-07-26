@@ -13,6 +13,8 @@ class Product extends Model
     const DRAFT = 1;
     const PUBLISHED = 2;
 
+    protected $guarded = ['id', 'created_at', 'updated_at'];
+
     //accesores
     public function getStockAttribute(){
         if ($this->subcategory->size) {
@@ -31,7 +33,6 @@ class Product extends Model
         
     }
 
-    protected $guarded = ['id', 'created_at', 'updated_at'];
     // Relacion uno a muchos inversa
     public function sizes() {
         return $this->hasMany(Size::class);

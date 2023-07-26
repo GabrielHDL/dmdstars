@@ -2,11 +2,11 @@
     {{-- Formaliio crear --}}
     <x-form-section submit="save" class="mb-6">
         <x-slot name="title">
-            Add new Brand
+            <p class="text-platinum font-saol font-bold">Add new Brand</p>
         </x-slot>
 
         <x-slot name="description">
-            In this section you can add a new brand
+            <p class="text-goldenrod">In this section you can add a new brand</p>
         </x-slot>
 
         <x-slot name="form">
@@ -30,11 +30,11 @@
     {{-- Lista de marcas --}}
     <x-action-section>
         <x-slot name="title">
-            Brand List
+            <p class="text-platinum font-saol font-bold">Brand List</p>
         </x-slot>
 
         <x-slot name="description">
-            Here you will find all added brands
+            <p class="text-goldenrod">Here you will find all added brands</p>
         </x-slot>
 
         <x-slot name="content">

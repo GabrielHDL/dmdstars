@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin;
 
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\Gender;
 use App\Models\Image;
 use Livewire\Component;
 
@@ -18,11 +19,12 @@ use Illuminate\Support\Str;
 class EditProduct extends Component
 {
 
-    public $product, $categories, $subcategories, $brands, $slug;
+    public $product, $genders, $categories, $subcategories, $brands, $slug;
 
-    public $category_id;
+    public $gender_id, $category_id;
 
-    protected $rules = [
+        protected $rules = [
+        'gender_id' => 'required',
         'category_id' => 'required',
         'product.subcategory_id' => 'required',
         'product.name' => 'required',
@@ -30,27 +32,32 @@ class EditProduct extends Component
         'product.description' => 'required',
         'product.brand_id' => 'required',
         'product.price' => 'required',
-        'product.quantity' => 'numeric',
+        'product.quantity' => 'numeric|nullable',
     ];
 
-    protected $listeners = ['refreshProduct', 'delete'];
-
-    public function mount(Product $product){
+    public function mount(Product $product) {
         $this->product = $product;
 
-        $this->categories = Category::all();
+        $this->genders = Gender::all();
+
+        $this->gender_id = $product->subcategory->category->gender->id;
 
         $this->category_id = $product->subcategory->category->id;
 
-        $this->subcategories = Subcategory::where('category_id', $this->category_id)->get();
+        $this->categories = Category::where('gender_id', $this->gender_id)->get();
 
-        $this->slug = $this->product->slug;
-
-        $this->brands = Brand::whereHas('categories', function(Builder $query){
+        $this->subcategories = Subcategory::whereHas('category', function(Builder $query) {
             $query->where('category_id', $this->category_id);
         })->get();
+
+        $this->brands = Brand::whereHas('categories', function(Builder $query){
+                    $query->where('category_id', $this->gender_id);
+        })->get();
+
+        $this->slug = $this->product->slug;
     }
 
+    protected $listeners = ['refreshProduct', 'delete'];
 
     public function refreshProduct(){
         $this->product = $this->product->fresh();
@@ -58,6 +65,14 @@ class EditProduct extends Component
 
     public function updatedProductName($value){
         $this->slug = Str::slug($value);
+    }
+
+    public function updatedGenderId($value){
+        $this->categories = Category::where('gender_id', $value)->get();
+
+        $this->category_id = "";
+        $this->product->subcategory_id = "";
+        $this->product->brand_id = "";
     }
 
     public function updatedCategoryId($value){
@@ -75,6 +90,64 @@ class EditProduct extends Component
     public function getSubcategoryProperty(){
         return Subcategory::find($this->product->subcategory_id);
     }
+
+    // public $product, $categories, $subcategories, $brands, $slug;
+
+    // public $category_id;
+
+    // protected $rules = [
+    //     'category_id' => 'required',
+    //     'product.subcategory_id' => 'required',
+    //     'product.name' => 'required',
+    //     'slug' => 'required|unique:products,slug',
+    //     'product.description' => 'required',
+    //     'product.brand_id' => 'required',
+    //     'product.price' => 'required',
+    //     'product.quantity' => 'numeric|nullable',
+    // ];
+
+    // protected $listeners = ['refreshProduct', 'delete'];
+
+    // public function mount(Product $product){
+    //     $this->product = $product;
+
+    //     $this->categories = Category::all();
+
+    //     $this->category_id = $product->subcategory->category->id;
+
+    //     $this->subcategories = Subcategory::where('category_id', $this->category_id)->get();
+
+    //     $this->slug = $this->product->slug;
+
+    //     $this->brands = Brand::whereHas('categories', function(Builder $query){
+    //         $query->where('category_id', $this->category_id);
+    //     })->get();
+    // }
+
+
+    // public function refreshProduct(){
+    //     $this->product = $this->product->fresh();
+    // }
+
+    // public function updatedProductName($value){
+    //     $this->slug = Str::slug($value);
+    // }
+
+    // public function updatedCategoryId($value){
+    //     $this->subcategories = Subcategory::where('category_id', $value)->get();
+
+    //     $this->brands = Brand::whereHas('categories', function(Builder $query) use ($value){
+    //         $query->where('category_id', $value);
+    //     })->get();
+
+    //     /* $this->reset(['subcategory_id', 'brand_id']); */
+    //     $this->product->subcategory_id = "";
+    //     $this->product->brand_id = "";
+    // }
+
+    // public function getSubcategoryProperty(){
+    //     return Subcategory::find($this->product->subcategory_id);
+    // }
 
     public function save() {
         $rules = $this->rules;

@@ -20,38 +20,38 @@
 
         <x-table-responsive>
 
-            <div class="px-6 py-4">
+            <div class="px-6 py-4 bg-platinum">
 
                 <x-input type="text" 
                     wire:model="search" 
-                    class="w-full"
-                    placeholder="Ingrese el nombre del procucto que quiere buscar" />
+                    class="w-full text-deer"
+                    placeholder="Enter the name of the product you want to search for" />
 
             </div>
 
             @if ($products->count())
                 
                 <table class="min-w-full divide-y divide-gray-200">
-                    <thead class="bg-gray-50">
+                    <thead class="bg-platinum">
                         <tr>
                             <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Nombre
+                                class="px-6 py-3 text-left text-xs font-medium text-deer uppercase tracking-wider">
+                                Name
                             </th>
                             <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Categoría
+                                class="px-6 py-3 text-left text-xs font-medium text-deer uppercase tracking-wider">
+                                Category
                             </th>
                             <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Estado
+                                class="px-6 py-3 text-left text-xs font-medium text-deer uppercase tracking-wider">
+                                Status
                             </th>
                             <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Precio
+                                class="px-6 py-3 text-left text-xs font-medium text-deer uppercase tracking-wider">
+                                Price
                             </th>
                             <th scope="col" class="relative px-6 py-3">
-                                <span class="sr-only">Editar</span>
+                                <span class="sr-only">Edit</span>
                             </th>
                         </tr>
                     </thead>
@@ -72,7 +72,7 @@
                                             @endif
                                         </div>
                                         <div class="ml-4">
-                                            <div class="text-sm font-medium text-gray-900">
+                                            <div class="text-sm font-medium text-rifleGreen">
                                                 {{ $product->name }}
                                             </div>
                                         </div>
@@ -80,7 +80,7 @@
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
 
-                                    <div class="text-sm text-gray-900">
+                                    <div class="text-sm text-rifleGreen">
                                         {{ $product->subcategory->category->name }}
                                     </div>
 
@@ -89,14 +89,14 @@
                                     @switch($product->status)
                                         @case(1)
                                             <span
-                                                class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                                                Borrador
+                                                class="px-2 inline-flex text-xs leading-5 uppercase font-semibold rounded-full bg-red-100 text-red-800">
+                                                Draft
                                             </span>
                                         @break
                                         @case(2)
                                             <span
                                                 class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                Publicado
+                                                Posted
                                             </span>
                                         @break
                                         @default
@@ -104,22 +104,21 @@
                                     @endswitch
 
                                 </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-rifleGreen">
                                     {{$product->price}} USD
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <a href="{{ route('admin.products.edit', $product) }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                    <a href="{{ route('admin.products.edit', $product) }}" class="text-deer hover:text-goldenrod">Edit</a>
                                 </td>
                             </tr>
 
                         @endforeach
-                        <!-- More people... -->
                     </tbody>
                 </table>
 
             @else
                 <div class="px-6 py-4">
-                    No hay ningún registro coincidente
+                    There is no matching record
                 </div>
             @endif
 

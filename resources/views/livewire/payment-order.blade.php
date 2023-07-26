@@ -125,11 +125,11 @@
                         <div class="my-4">
                             <div wire:ignore>
                                 <input id="card-holder-name" placeholder="Cardholder Name"
-                                    class="mb-4 bg-gray-50 border border-deer text-rifleGreen text-sm rounded-lg focus:ring-deer focus:border-deer block w-full p-2.5">
+                                    class="mb-4 bg-gray-50 border border-deer text-rifleGreen text-sm focus:ring-deer focus:border-deer block w-full p-2.5">
 
                                 <!-- Stripe Elements Placeholder -->
                                 <div id="card-element"
-                                    class="mb-2 bg-gray-50 border border-deer text-rifleGreen text-sm rounded-lg focus:ring-deer focus:border-deer block w-full p-2.5">
+                                    class="mb-2 bg-gray-50 border border-deer text-rifleGreen text-sm focus:ring-deer focus:border-deer block w-full p-2.5">
                                 </div>
                                 <span id="card-error-message" class="text-goldenrod text-sm"></span>
                             </div>

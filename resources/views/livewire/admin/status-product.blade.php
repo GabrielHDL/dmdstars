@@ -1,4 +1,4 @@
-<div class="bg-platinum text-deer shadow-xl rounded-lg p-6 mb-4">
+<div class="bg-platinum text-deer shadow-xl p-6 mb-4">
     <p class="text-2xl text-center font-semibold mb-2">Product Status</p>
 
     <div class="flex">

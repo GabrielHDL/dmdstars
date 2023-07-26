@@ -8,7 +8,7 @@
                 <p class="text-center text-2xl">
                     {{$recibido}}
                 </p>
-                <p class="uppercase text-center">Recibido</p>
+                <p class="uppercase text-center">Placed</p>
                 <p class="text-center text-2xl mt-2">
                     <i class="fas fa-credit-card"></i>
                 </p>
@@ -18,7 +18,7 @@
                 <p class="text-center text-2xl">
                     {{$enviado}}
                 </p>
-                <p class="uppercase text-center">Enviado</p>
+                <p class="uppercase text-center">Shipped</p>
                 <p class="text-center text-2xl mt-2">
                     <i class="fas fa-truck"></i>
                 </p>
@@ -28,7 +28,7 @@
                 <p class="text-center text-2xl">
                     {{$entregado}}
                 </p>
-                <p class="uppercase text-center">Entregado</p>
+                <p class="uppercase text-center">Delivered</p>
                 <p class="text-center text-2xl mt-2">
                     <i class="fas fa-check-circle"></i>
                 </p>
@@ -38,7 +38,7 @@
                 <p class="text-center text-2xl">
                     {{$anulado}}
                 </p>
-                <p class="uppercase text-center">Anulado</p>
+                <p class="uppercase text-center">Nulled</p>
                 <p class="text-center text-2xl mt-2">
                     <i class="fas fa-times-circle"></i>
                 </p>
@@ -48,7 +48,7 @@
         @if ($orders->count())
         
             <section class="bg-platinum shadow-lg px-12 py-8 mt-12 text-rifleGreen">
-                <h1 class="text-2xl mb-4">Pedidos recientes</h1>
+                <h1 class="text-2xl mb-4">Recent Orders</h1>
 
                 <ul>
                     @foreach ($orders as $order)
@@ -77,7 +77,7 @@
                                 </span>
 
                                 <span>
-                                    Orden: {{$order->id}}
+                                    Order: {{$order->id}}
                                     <br>
                                     {{$order->created_at->format('d/m/Y')}}
                                 </span>
@@ -88,27 +88,27 @@
                                         @switch($order->status)
                                             @case(1)
                                                 
-                                                Pendiente
+                                                Pending
 
                                                 @break
                                             @case(2)
                                                 
-                                                Recibido
+                                                Placed
 
                                                 @break
                                             @case(3)
                                                 
-                                                Enviado
+                                                Shipped
 
                                                 @break
                                             @case(4)
                                                 
-                                                Entregado
+                                                Delivered
 
                                                 @break
                                             @case(5)
                                                 
-                                                Anulado
+                                                Nulled
 
                                                 @break
                                             @default
@@ -134,9 +134,9 @@
             </section>
 
         @else
-            <div class="bg-white shadow-lg px-12 py-8 mt-12 text-gray-700">
+            <div class="bg-platinum shadow-lg px-12 py-8 mt-12 text-rifleGreen">
                 <span class="font-bold text-lg">
-                    No existe registros de ordenes
+                    There are no order records
                 </span>
             </div>
         @endif

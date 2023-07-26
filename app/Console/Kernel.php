@@ -2,9 +2,12 @@
 
 namespace App\Console;
 
+use App\Mail\TimeOutOrderMailable;
 use App\Models\Order;
+use App\Models\User;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Support\Facades\Mail;
 
 class Kernel extends ConsoleKernel
 {
@@ -30,6 +33,9 @@ class Kernel extends ConsoleKernel
                 $order->status = 5;
 
                 $order->save();
+
+                $user = User::find($order->user_id);
+                Mail::to($user->email)->send(new TimeOutOrderMailable($order));
             }
 
         })->everyMinute();

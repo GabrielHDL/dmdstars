@@ -86,7 +86,7 @@
                     <p class="text-sm">Los productos deben ser recogidos en tienda</p>
                     <p class="text-sm">Calle falsa 123</p>
                 @else
-                    <p class="text-sm">Los productos Serán enviados a:</p>
+                    <p class="text-sm">We shipping to:</p>
                     <p class="text-sm">{{ $envio->address }}</p>
                     <p>{{ $envio->department }} - {{ $envio->city }} - {{ $envio->district }}
                     </p>
@@ -96,23 +96,23 @@
             </div>
 
             <div>
-                <p class="text-lg font-semibold uppercase">Datos de contacto</p>
+                <p class="text-lg font-semibold uppercase">Contact Information</p>
 
-                <p class="text-sm">Persona que recibirá el producto: {{ $order->contact }}</p>
-                <p class="text-sm">Teléfono de contacto: {{ $order->phone }}</p>
+                <p class="text-sm">Person who will receive the product: {{ $order->contact }}</p>
+                <p class="text-sm">Contact Phone: {{ $order->phone }}</p>
             </div>
         </div>
     </div>
 
     <div class="bg-platinum shadow-lg p-6 text-rifleGreen mb-6">
-        <p class="text-xl font-semibold mb-4">Resumen</p>
+        <p class="text-xl font-semibold mb-4">In Resume</p>
 
         <table class="table-auto w-full">
             <thead>
                 <tr>
                     <th></th>
-                    <th>Precio</th>
-                    <th>Cant</th>
+                    <th>Price</th>
+                    <th>Qty</th>
                     <th>Total</th>
                 </tr>
             </thead>

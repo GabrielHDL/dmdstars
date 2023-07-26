@@ -10,11 +10,11 @@
         <x-form-section submit="save" class="mb-6">
     
             <x-slot name="title">
-                Add a new city
+                <p class="title__admin">Add a new city</p>
             </x-slot>
     
             <x-slot name="description">
-                Complete the necessary information to be able to add a new city
+                <p class="text-goldenrod">Complete the necessary information to be able to add a new city</p>
             </x-slot>
     
             <x-slot name="form">
@@ -54,11 +54,11 @@
         {{-- Mostrar Departamentos --}}
         <x-action-section>
             <x-slot name="title">
-                City List
+                <p class="title__admin">City List</p>
             </x-slot>
     
             <x-slot name="description">
-                Here you will find all the added cities
+                <p class="text-goldenrod">Here you will find all the added cities</p>
             </x-slot>
     
             <x-slot name="content">

@@ -9,22 +9,26 @@
                             d="M4 6h16M4 12h8m-8 6h16" />
                     </svg>
                 </label>
-                <ul tabindex="0"
+                <div tabindex="0"
                     class="menu menu-sm dropdown-content mt-3 p-2 shadow bg-platinum text-rifleGreen rounded-box w-52">
                     @if (Request::routeIs('admin.landing*'))
-                        <li><a href="{{ route('admin.landing-pendings') }}">Pendings</a></li>
-                        <li><a href="{{ route('admin.landing-prospects') }}">Prospects</a></li>
-                        <li><a href="{{ route('admin.landing-partners') }}">Partners</a></li>
-                        <li><a href="{{ route('admin.landing-rejects') }}">Rejects</a></li>
+                    <x-nav-link href="{{ route('admin.index') }}">Shop Dashboard</x-nav-link>
+                    <x-nav-link class="my-1" href="{{ route('admin.landing-pendings') }}" :active="request()->routeIs('admin.landing-pendings')">Pendings</x-nav-link>
+                    <x-nav-link class="my-1" href="{{ route('admin.landing-prospects') }}" :active="request()->routeIs('admin.landing-prospects')">Prospects</x-nav-link>
+                    <x-nav-link class="my-1" href="{{ route('admin.landing-partners') }}" :active="request()->routeIs('admin.landing-partners')">Partners</x-nav-link>
+                    <x-nav-link class="my-1" href="{{ route('admin.landing-rejects') }}" :active="request()->routeIs('admin.landing-rejects')">Rejects</x-nav-link>
                     @else
-                        <li><a href="{{ route('admin.landing') }}">Landing</a></li>
+                        <x-nav-link href="{{ route('admin.landing') }}">Landing Dashboard</x-nav-link>
+
                         <x-nav-link href="{{route('admin.index')}}" :active="request()->routeIs('admin.index')">
                             Products
                         </x-nav-link>
     
-    
-                        <x-nav-link href="{{route('admin.orders.index')}}" :active="request()->routeIs('admin.orders.*')">
+                        <x-nav-link class="relative" href="{{route('admin.orders.index')}}" :active="request()->routeIs('admin.orders.*')">
                             Orders
+                            @if ($pendings->count())
+                                <span class="bg-goldenrod text-white px-1 rounded-full flex items-center justify-center ml-1 absolute mb-2 -right-3 text-xs">{{$pendings->count()}}</span>
+                            @endif
                         </x-nav-link>
     
                         <x-nav-link href="{{route('admin.categories.index')}}" :active="request()->routeIs('admin.categories.*')">
@@ -43,7 +47,7 @@
                             Users
                         </x-nav-link>
                     @endif
-                </ul>
+                </div>
             </div>
             <a href="{{ route('admin.index') }}" class="flex text-rifleGreen items-center">
                 <x-imagotipo color="text-rifleGreen" height="h-8" hover="hover:text-deer" /><span
@@ -51,20 +55,24 @@
             </a>
         </div>
         <div class="navbar-center hidden lg:flex">
-            <ul class="menu menu-horizontal text-rifleGreen px-1">
+            <div class="flex gap-3 text-rifleGreen px-1">
                 @if (Request::routeIs('admin.landing*'))
+                    <x-nav-link href="{{ route('admin.index') }}">Shop Dashboard</x-nav-link>
                     <x-nav-link href="{{ route('admin.landing-pendings') }}" :active="request()->routeIs('admin.landing-pendings')">Pendings</x-nav-link>
                     <x-nav-link href="{{ route('admin.landing-prospects') }}" :active="request()->routeIs('admin.landing-prospects')">Prospects</x-nav-link>
                     <x-nav-link href="{{ route('admin.landing-partners') }}" :active="request()->routeIs('admin.landing-partners')">Partners</x-nav-link>
                     <x-nav-link href="{{ route('admin.landing-rejects') }}" :active="request()->routeIs('admin.landing-rejects')">Rejects</x-nav-link>
                 @else
-                    <x-nav-link href="{{ route('admin.landing') }}">Landing</x-nav-link>
+                    <x-nav-link href="{{ route('admin.landing') }}">Landing Dashboard</x-nav-link>
                     <x-nav-link href="{{route('admin.index')}}" :active="request()->routeIs('admin.index')">
                         Products
                     </x-nav-link>
 
-                    <x-nav-link href="{{route('admin.orders.index')}}" :active="request()->routeIs('admin.orders.*')">
+                    <x-nav-link class="relative" href="{{route('admin.orders.index')}}" :active="request()->routeIs('admin.orders.*')">
                         Orders
+                        @if ($pendings->count())
+                            <span class="bg-goldenrod text-white px-1 rounded-full flex items-center justify-center ml-1 absolute mb-2 -right-3 text-xs">{{$pendings->count()}}</span>
+                        @endif
                     </x-nav-link>
 
                     <x-nav-link href="{{route('admin.categories.index')}}" :active="request()->routeIs('admin.categories.*')">
@@ -83,7 +91,7 @@
                         Users
                     </x-nav-link>
                 @endif
-            </ul>
+            </div>
         </div>
         <div class="navbar-end">
             <div class="dropdown dropdown-end">

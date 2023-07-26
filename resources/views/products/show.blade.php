@@ -15,7 +15,7 @@
                 <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                     <h2 class="text-sm title-font text-deer uppercase tracking-widest">{{ $product->brand->name }}</h2>
                     <h1 class="text-3xl font-saol font-bold mb-1">{{ $product->name }}</h1>
-                    <div class="flex mb-4">
+                    {{-- <div class="flex mb-4">
                         <span class="flex items-center">
                             <svg fill="currentColor" stroke="currentColor" stroke-linecap="round"
                                 stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-goldenrod"
@@ -79,8 +79,8 @@
                                 </svg>
                             </a>
                         </span>
-                    </div>
-                    <p class="leading-relaxed">{!! $product->description !!}</p>
+                    </div> --}}
+                    <p class="leading-relaxed mt-4">{!! $product->description !!}</p>
                     <div class="mt-6 mb-5 w-full bg-deer p-3 shadow flex justify-center items-center text-platinum flex-col">
                         <div>
                             <i class="fa-brands fa-fedex text-2xl mr-2"></i><i

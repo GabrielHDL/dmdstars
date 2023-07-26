@@ -49,8 +49,8 @@
             <table class="text-gray-600">
                 <thead class="border-b border-gray-300">
                     <tr class="text-left">
-                        <th class="py-2 w-full">Nombre</th>
-                        <th class="py-2">Acción</th>
+                        <th class="py-2 w-full">Name</th>
+                        <th class="py-2">Action</th>
                     </tr>
                 </thead>
 
@@ -65,8 +65,8 @@
                             </td>
                             <td class="py-2">
                                 <div class="flex divide-x divide-gray-300 font-semibold">
-                                    <a class="pr-2 hover:text-blue-600 cursor-pointer" wire:click="edit({{$department}})">Editar</a>
-                                    <a class="pl-2 hover:text-red-600 cursor-pointer" wire:click="$emit('deleteDepartment', {{$department->id}})">Eliminar</a>
+                                    <a class="pr-2 hover:text-blue-600 cursor-pointer" wire:click="edit({{$department}})">Edit</a>
+                                    <a class="pl-2 hover:text-red-600 cursor-pointer" wire:click="$emit('deleteDepartment', {{$department->id}})">Delete</a>
                                 </div>
                             </td>
                         </tr>
@@ -81,7 +81,7 @@
     <x-dialog-modal wire:model="editForm.open">
 
         <x-slot name="title">
-            Editar departamento
+            Edit Department
         </x-slot>
 
         <x-slot name="content">
@@ -90,7 +90,7 @@
                
                 <div>
                     <x-label>
-                        Nombre
+                        Name
                     </x-label>
 
                     <x-input wire:model="editForm.name" type="text" class="w-full mt-1" />
@@ -104,7 +104,7 @@
 
         <x-slot name="footer">
             <x-danger-button wire:click="update" wire:loading.attr="disabled" wire:target="update">
-                Actualizar
+                Update
             </x-danger-button>
         </x-slot>
 

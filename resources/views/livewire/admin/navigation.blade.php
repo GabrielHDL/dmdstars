@@ -50,8 +50,7 @@
                 </div>
             </div>
             <a href="{{ route('admin.index') }}" class="flex text-rifleGreen items-center">
-                <x-imagotipo color="text-rifleGreen" height="h-8" hover="hover:text-deer" /><span
-                    class="hidden sm:inline-block font-bold mb-[0.185rem] font-saol"> | Dashboard</span>
+                <x-imagotipo color="text-rifleGreen" height="h-8" hover="hover:text-deer" />
             </a>
         </div>
         <div class="navbar-center hidden lg:flex">
@@ -68,7 +67,7 @@
                         Products
                     </x-nav-link>
 
-                    <x-nav-link class="relative" href="{{route('admin.orders.index')}}" :active="request()->routeIs('admin.orders.*')">
+                    <x-nav-link class="relative {{$pendings->count() ? 'mr-3' : ''}}" href="{{route('admin.orders.index')}}" :active="request()->routeIs('admin.orders.*')">
                         Orders
                         @if ($pendings->count())
                             <span class="bg-goldenrod text-white px-1 rounded-full flex items-center justify-center ml-1 absolute mb-2 -right-3 text-xs">{{$pendings->count()}}</span>
@@ -106,10 +105,14 @@
                         {{ Auth::user()->name }}
                     </div>
                     <li>
-                        <a href="/">{{ __('Go to Landing') }}</a>
+                        @if (request()->routeIs('admin.landing'))
+                            <a href="{{route('landing.index')}}">{{ __('Go to Landing') }}</a>
+                        @else
+                            <a href="{{route('home')}}">{{ __('Go to Shop') }}</a>
+                        @endif
                     </li>
                     <li>
-                        <a href="{{ route('profile.show') }}">Profile</a>
+                        <a href="{{ route('profile.show') }}">{{__('Profile')}}</a>
                     </li>
                     <li>
                         <form method="POST" action="{{ route('logout') }}" class="mb-0" x-data>

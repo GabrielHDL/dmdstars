@@ -40,6 +40,10 @@
                             </th>
                             <th scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-deer uppercase tracking-wider">
+                                Gender
+                            </th>
+                            <th scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-deer uppercase tracking-wider">
                                 Category
                             </th>
                             <th scope="col"
@@ -81,6 +85,13 @@
                                 <td class="px-6 py-4 whitespace-nowrap">
 
                                     <div class="text-sm text-rifleGreen">
+                                        {{ $product->subcategory->category->gender->name }}
+                                    </div>
+
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+
+                                    <div class="text-sm text-rifleGreen">
                                         {{ $product->subcategory->category->name }}
                                     </div>
 
@@ -95,7 +106,7 @@
                                         @break
                                         @case(2)
                                             <span
-                                                class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                                class="px-2 inline-flex text-xs leading-5 uppercase font-semibold rounded-full bg-green-100 text-green-800">
                                                 Posted
                                             </span>
                                         @break

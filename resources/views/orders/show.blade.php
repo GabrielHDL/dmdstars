@@ -5,39 +5,55 @@
 
         <div class="bg-rifleGreen shadow px-12 py-8 mb-6 flex items-center text-platinum">
 
-            <div class="relative">
-                <div class="{{ ($order->status >= 2 && $order->status != 5) ? 'bg-goldenrod' : 'bg-gray-400' }}  rounded-full h-12 w-12 flex items-center justify-center">
-                    <i class="fas fa-check text-white"></i>
+            @if ($order->status == 5)
+                <div class="flex flex-col items-center justify-center w-full">
+                    <div class="bg-red-700 rounded-full h-12 w-12 flex items-center justify-center">
+                        <i class="fa-regular fa-circle-xmark text-xl text-white"></i>
+                    </div>
+                    <p class="mt-2">Canceled</p>
+                </div>
+            @else
+                <div class="relative">
+                    <div
+                        class="{{ $order->status >= 2 && $order->status != 5 ? 'bg-goldenrod' : 'bg-gray-400' }}  rounded-full h-12 w-12 flex items-center justify-center">
+                        <i class="fas fa-check text-white"></i>
+                    </div>
+
+                    <div class="absolute -left-1.5 mt-0.5">
+                        <p>Placed</p>
+                    </div>
                 </div>
 
-                <div class="absolute -left-1.5 mt-0.5">
-                    <p>Placed</p>
-                </div>
-            </div>
-
-            <div class="{{ ($order->status >= 3 && $order->status != 5) ? 'bg-goldenrod' : 'bg-gray-400' }} h-1 flex-1 mx-2"></div>
-
-            <div class="relative">
-                <div class="{{ ($order->status >= 3 && $order->status != 5) ? 'bg-goldenrod' : 'bg-gray-400' }} rounded-full h-12 w-12 flex items-center justify-center">
-                    <i class="fas fa-truck text-white"></i>
+                <div
+                    class="{{ $order->status >= 3 && $order->status != 5 ? 'bg-goldenrod' : 'bg-gray-400' }} h-1 flex-1 mx-2">
                 </div>
 
-                <div class="absolute -left-1 mt-0.5">
-                    <p>Shipped</p>
-                </div>
-            </div>
+                <div class="relative">
+                    <div
+                        class="{{ $order->status >= 3 && $order->status != 5 ? 'bg-goldenrod' : 'bg-gray-400' }} rounded-full h-12 w-12 flex items-center justify-center">
+                        <i class="fas fa-truck text-white"></i>
+                    </div>
 
-            <div class="{{ ($order->status >= 4 && $order->status != 5) ? 'bg-goldenrod' : 'bg-gray-400' }} h-1 flex-1 mx-2"></div>
-
-            <div class="relative">
-                <div class="{{ ($order->status >= 4 && $order->status != 5) ? 'bg-goldenrod' : 'bg-gray-400' }} rounded-full h-12 w-12 flex items-center justify-center">
-                    <i class="fas fa-check text-white"></i>
+                    <div class="absolute -left-1 mt-0.5">
+                        <p>Shipped</p>
+                    </div>
                 </div>
 
-                <div class="absolute -left-2 mt-0.5">
-                    <p>Delivered</p>
+                <div
+                    class="{{ $order->status >= 4 && $order->status != 5 ? 'bg-goldenrod' : 'bg-gray-400' }} h-1 flex-1 mx-2">
                 </div>
-            </div>
+
+                <div class="relative">
+                    <div
+                        class="{{ $order->status >= 4 && $order->status != 5 ? 'bg-goldenrod' : 'bg-gray-400' }} rounded-full h-12 w-12 flex items-center justify-center">
+                        <i class="fas fa-check text-white"></i>
+                    </div>
+
+                    <div class="absolute -left-2 mt-0.5">
+                        <p>Delivered</p>
+                    </div>
+                </div>
+            @endif
 
         </div>
 
@@ -49,11 +65,10 @@
                 Order-{{ $order->id }}</p>
 
             @if ($order->status == 1)
-            
-                <a class="ml-auto text-white bg-goldenrod hover:bg-deer px-4 py-1 btn rounded-none border-none" href="{{route('orders.payment', $order)}}">
+                <a class="ml-auto text-white bg-goldenrod hover:bg-deer px-4 py-1 btn rounded-none border-none"
+                    href="{{ route('orders.payment', $order) }}">
                     Go to pay
                 </a>
-
             @endif
         </div>
 
@@ -73,8 +88,8 @@
                     @endif --}}
 
                     <p class="text-sm">The product(s) will be sent to:</p>
-                        <p class="text-sm">{{ $envio->address }}</p>
-                        <p>{{ $envio->department }} - {{ $envio->city }} - {{ $envio->district }}</p>
+                    <p class="text-sm">{{ $envio->address }}</p>
+                    <p>{{ $envio->department }} - {{ $envio->city }} - {{ $envio->district }}</p>
 
 
                 </div>
@@ -89,7 +104,7 @@
         </div>
 
         <div class="bg-rifleGreen shadow p-6 text-platinum mb-6">
-            <p class="text-xl font-bold font-saol mb-4">In Resume</p>
+            <p class="text-xl font-bold font-saol mb-4">Summary</p>
 
             <table class="table-auto w-full">
                 <thead>

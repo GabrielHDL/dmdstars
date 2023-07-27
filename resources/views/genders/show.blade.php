@@ -9,7 +9,7 @@
             @foreach ($products as $product)
                 <div class="bg-rifleGreen shadow transition-all ease-linear hover:shadow-lg hover:shadow-black/40">
                     <a href="{{route('products.show', $product)}}">
-                        <img class="pb-4" src="{{ Storage::url($product->images->first()->url) }}" alt="product image" />
+                        <img class="pb-4 h-60 w-full object-cover object-center" src="{{ Storage::url($product->images->first()->url) }}" alt="product image" />
                     </a>
                     <div class="px-5 pb-5">
                         <a href="{{route('products.show', $product)}}">

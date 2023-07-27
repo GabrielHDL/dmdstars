@@ -11,16 +11,6 @@
                 <div class="grid grid-cols-2 gap-6 text-platinum">
                     <div>
                         <p class="text-lg font-saol font-bold">Shipping</p>
-
-                        {{-- @if ($order->envio_type == 1)
-                            <p class="text-sm">Los productos deben ser recogidos en tienda</p>
-                            <p class="text-sm">Calle falsa 123</p>
-                        @else
-                            <p class="text-sm">Los productos Serán enviados a:</p>
-                            <p class="text-sm">{{ $envio->address }}</p>
-                            <p>{{ $envio->department }} - {{ $envio->city }} - {{ $envio->district }}
-                            </p>
-                        @endif --}}
                         <p class="text-sm">We shipping to:</p>
                         <p class="text-sm">{{ $envio->address }}</p>
                         <p>{{ $envio->department }} - {{ $envio->city }} - {{ $envio->district }}</p>
@@ -38,7 +28,7 @@
             </div>
 
             <div class="bg-rifleGreen shadow-lg p-6 text-platinum mb-6">
-                <p class="text-xl mb-4 font-saol font-bold">In resume</p>
+                <p class="text-xl mb-4 font-saol font-bold">Summary</p>
 
                 <table class="table-auto w-full">
                     <thead class="font-proximaBold">
@@ -97,7 +87,7 @@
         <div class="order-1 lg:order-2 xl:col-span-2">
             <div class="bg-rifleGreen shadow-lg p-6 mb-6">
                 <div class="flex justify-between items-center">
-                    <div class="text-platinum flex text-4xl gap-3 items-center">
+                    <div class="text-platinum flex text-4xl sm:text-5xl gap-3 items-center">
                         <i class="fa-brands fa-cc-visa"></i>
                         <i class="fa-brands fa-cc-mastercard"></i>
                         <i class="fa-brands fa-cc-amex"></i>
@@ -116,7 +106,11 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-rifleGreen shadow-lg text-platinum">
+            <div class="bg-rifleGreen shadow-lg text-platinum relative">
+                <div wire:loading.flex class="absolute bg-deer h-full w-full flex-col justify-center items-center z-50">
+                    <span class="text-platinum loading loading-bars loading-lg"></span>
+                    <span class="mt-6 text-platinum font-proximaBold">Processing payment, please wait...</span>
+                </div>
                 <div class="flex items-start justify-center flex-col w-full">
                     <div class="bg-slate-900/20 w-full h-full px-6 pt-6 pb-2 border-b border-deer">
                         <h1 class="font-saol font-bold text-xl mb-4">Payment Methods</h1>

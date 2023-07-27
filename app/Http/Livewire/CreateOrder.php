@@ -22,20 +22,16 @@ class CreateOrder extends Component
     public $rules = [
         'contact' => 'required',
         'phone' => 'required',
-        'envio_type' => 'required'
+        'department_id' => 'required',
+        'city_id' => 'required',
+        'district_id' => 'required',
+        'address' => 'required',
+        'references' => 'required'
     ];
 
     public function mount(){
         $this->departments = Department::all();
     }
-
-    public function updatedEnvioType($value){
-        if ($value == 1) {
-            $this->resetValidation([
-                'department_id', 'city_id', 'district_id', 'address', 'references'
-            ]);
-        }
-    } 
 
 
     public function updatedDepartmentId($value){
@@ -61,14 +57,6 @@ class CreateOrder extends Component
 
         $rules = $this->rules;
 
-        if($this->envio_type == 2){
-            $rules['department_id'] = 'required';
-            $rules['city_id'] = 'required';
-            $rules['district_id'] = 'required';
-            $rules['address'] = 'required';
-            $rules['references'] = 'required';
-        }
-
         $this->validate($rules);
 
         $order = new Order();
@@ -81,21 +69,15 @@ class CreateOrder extends Component
         $order->total = $this->shipping_cost + Cart::subtotal();
         $order->content = Cart::content();
 
-        if ($this->envio_type == 2) {
-            $order->shipping_cost = $this->shipping_cost;
-            /* $order->department_id = $this->department_id;
-            $order->city_id = $this->city_id;
-            $order->district_id = $this->district_id;
-            $order->address = $this->address;
-            $order->references = $this->references; */
-            $order->envio = json_encode([
-                'department' => Department::find($this->department_id)->name,
-                'city' => City::find($this->city_id)->name,
-                'district' => District::find($this->district_id)->name,
-                'address' => $this->address,
-                'references' => $this->references
-            ]);
-        }
+        $order->shipping_cost = $this->shipping_cost;
+
+        $order->envio = json_encode([
+            'department' => Department::find($this->department_id)->name,
+            'city' => City::find($this->city_id)->name,
+            'district' => District::find($this->district_id)->name,
+            'address' => $this->address,
+            'references' => $this->references
+        ]);
 
         $order->save();
 

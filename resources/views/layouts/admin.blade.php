@@ -63,7 +63,7 @@
         }
     </style>
     <body class="font-sans antialiased w-full">
-        @if (Request::routeIs('admin.home'))
+        @if (Request::routeIs(['admin.index', 'admin.landing']))
             <div id="preloader" class="transition-all ease-out duration-300 opacity-100 bg-rifleGreen w-full h-screen flex justify-center items-center fixed top-0 z-[9999]">
                 <div class="w-full flex justify-center items-center flex-col">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 328.23 79.06" class="h-20 mb-6 w-auto text-platinum fill-current" fill="none">
@@ -106,7 +106,7 @@
 
         <x-admin.footer />
 
-        @if (Request::routeIs('admin.home'))
+        @if (Request::routeIs(['admin.index', 'admin.landing']))
             <script rel="preload" src="{{asset('assets/js/custom_admin.js')}}"></script>
         @endif
 

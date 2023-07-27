@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/landing', [LandingController::class, 'index']);
+Route::get('/landing', [LandingController::class, 'index'])->name('landing.index');
 
 Route::get('/', HomeController::class)->name('home');
 

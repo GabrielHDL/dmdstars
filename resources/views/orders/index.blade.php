@@ -90,7 +90,7 @@
                                     </span>
     
                                     <span>
-                                        Orden: {{$order->id}}
+                                        Order: {{$order->id}}
                                         <br>
                                         {{$order->created_at->format('d/m/Y')}}
                                     </span>
@@ -116,7 +116,7 @@
                                                     @break
                                                 @case(4)
                                                     
-                                                    Received
+                                                    Delivered
     
                                                     @break
                                                 @case(5)

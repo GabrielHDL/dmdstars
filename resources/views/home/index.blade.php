@@ -8,14 +8,14 @@
                 <p class="mb-5 text-platinum">Experience the allure of DMD STARS, where exquisite leather garments and
                     accessories are meticulously crafted by hand using 100% Mexican materials. Each piece is a
                     one-of-a-kind masterpiece, showcasing distinct characteristics that set it apart.</p>
-                <button
+                <a href="#shop"
                     class="btn btn-primary text-platinum bg-rifleGreen border-0 hover:bg-platinum hover:text-rifleGreen rounded-none">Go
-                    Shop</button>
+                    Shop</a>
             </div>
         </div>
     </div>
     <div class="container pb-10">
-        <div class="mb-10">
+        <div id="shop" class="mb-10">
             <h2 class="text-rifleGreen font-saol text-3xl font-bold text-center">Leather goods that redefine simple
                 everyday luxury</h2>
             <p class="text-center mt-3 text-deer">With a Mexican touch.</p>
@@ -28,7 +28,7 @@
                     @foreach ($gender->categories as $category)
                         <a href="{{route('genderCategory.show', [$category->gender, $category])}}"
                             class="bg-rifleGreen text-platinum hover:text-white hover:shadow-lg hover:shadow-black/40 transition-all ease-linear image-full">
-                            <figure><img src="{{ Storage::url($category->image) }}" alt="Shoes" /></figure>
+                            <figure><img class="h-56 w-auto object-cover object-center" src="{{ Storage::url($category->image) }}" alt="Shoes" /></figure>
                             <div class="card-body">
                                 <h2 class="card-title">{{ $category->name }}</h2>
                             </div>

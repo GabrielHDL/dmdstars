@@ -14,7 +14,7 @@
                     Gender
                 </x-label>
 
-                <select wire:model="createForm.gender" class="w-full mt-1 text-deer" name="Gender" id="">
+                <select wire:model="createForm.gender" class="w-full mt-1 text-deer border-gray-300 rounded-lg focus:border-deer focus:ring-deer" name="Gender" id="">
                     <option selected disabled value="">Select Gender</option>
                     @foreach ($genders as $gender)
                         <option value="{{$gender->id}}">{{$gender->name}}</option>
@@ -109,7 +109,8 @@
             <table class="text-gray-600">
                 <thead class="border-b border-gray-300">
                     <tr class="text-left">
-                        <th class="py-2 w-full">Name</th>
+                        <th class="py-2 w-1/4">Category Gender</th>
+                        <th class="py-2 w-3/4">Name</th>
                         <th class="py-2">Action</th>
                     </tr>
                 </thead>
@@ -117,6 +118,9 @@
                 <tbody class="divide-y divide-gray-300">
                     @foreach ($categories as $category)
                         <tr>
+                            <td class="py-2">
+                                {{$category->gender->name}}
+                            </td>
                             <td class="py-2">
                                 <span class="inline-block w-8 text-center mr-2">
                                     {!!$category->icon!!}

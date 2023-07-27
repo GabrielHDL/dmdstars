@@ -30,7 +30,7 @@ return new class extends Migration
 
             $table->integer('quantity')->nullable();
 
-            $table->enum('status', [Product::DRAFT, Product::PUBLISHED])->default(Product::PUBLISHED);
+            $table->enum('status', [Product::DRAFT, Product::PUBLISHED])->default(Product::DRAFT);
 
             $table->timestamps();
         });

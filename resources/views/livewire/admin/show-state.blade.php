@@ -1,9 +1,11 @@
 <div>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight capitalize">
-            Department: {{$department->name}}
-        </h2>
-    </x-slot>
+    <header>
+        <div class="container">
+            <h2 class="font-bold font-saol text-xl text-platinum leading-tight capitalize">
+                State: {{$state->name}}
+            </h2>
+        </div>
+    </header>
 
     <div class="container py-12">
         {{-- Agregar departamento --}}
@@ -76,9 +78,9 @@
                             <tr>
                                 <td class="py-2">
     
-                                    <a href="{{route('admin.cities.show', $city)}}" class="uppercase underline hover:text-blue-600">
+                                    <span class="uppercase">
                                         {{$city->name}}
-                                    </a>
+                                    </span>
                                 </td>
                                 <td class="py-2">
                                     <div class="flex divide-x divide-gray-300 font-semibold">
@@ -98,7 +100,7 @@
         <x-dialog-modal wire:model="editForm.open">
     
             <x-slot name="title">
-                Edit Department
+                Edit City
             </x-slot>
     
             <x-slot name="content">

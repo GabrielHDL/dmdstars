@@ -1,35 +1,37 @@
+
 <?php
 
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Migrations\Migration;
 
-return new class extends Migration
+class CreateCitiesTable extends Migration
 {
     /**
      * Run the migrations.
+     * @table cities
+     *
+     * @return void
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('cities', function (Blueprint $table) {
             $table->id();
-
-            $table->string('name');
-
-            $table->float('cost');
-
-            $table->unsignedBigInteger('department_id');
-            $table->foreign('department_id')->references('id')->on('departments')->onDelete('cascade');
-
-            $table->timestamps();
+            $table->string('name', 45);
+            $table->float('cost')->default(20);
+            
+            $table->unsignedBigInteger('state_id');
+            $table->foreign('state_id')->references('id')->on('states')->onDelete('cascade');
         });
     }
 
     /**
      * Reverse the migrations.
+     *
+     * @return void
      */
-    public function down(): void
+    public function down()
     {
-        Schema::dropIfExists('cities');
+
+        Schema::drop('cities');
     }
-};
+}

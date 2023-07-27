@@ -39,8 +39,8 @@
                             Brands
                         </x-nav-link>
     
-                        <x-nav-link href="{{route('admin.departments.index')}}" :active="request()->routeIs('admin.departments.index')">
-                            Departments
+                        <x-nav-link href="{{route('admin.states.index')}}" :active="request()->routeIs('admin.states.index')">
+                            States
                         </x-nav-link>
     
                         <x-nav-link href="{{route('admin.users.index')}}" :active="request()->routeIs('admin.users.index')">
@@ -82,8 +82,8 @@
                         Brands
                     </x-nav-link>
 
-                    <x-nav-link href="{{route('admin.departments.index')}}" :active="request()->routeIs('admin.departments.index')">
-                        Departments
+                    <x-nav-link href="{{route('admin.states.index')}}" :active="request()->routeIs('admin.states.index')">
+                        States
                     </x-nav-link>
 
                     <x-nav-link href="{{route('admin.users.index')}}" :active="request()->routeIs('admin.users.index')">

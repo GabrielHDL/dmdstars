@@ -77,19 +77,10 @@
                 <div>
                     <p class="text-lg font-bold font-saol">Shipping</p>
 
-                    {{-- @if ($order->envio_type == 1)
-                        <p class="text-sm">Los productos deben ser recogidos en tienda</p>
-                        <p class="text-sm">Calle falsa 123</p>
-                    @else
-                        <p class="text-sm">The product(s) will be sent to:</p>
-                        <p class="text-sm">{{ $envio->address }}</p>
-                        <p>{{ $envio->department }} - {{ $envio->city }} - {{ $envio->district }}
-                        </p>
-                    @endif --}}
-
                     <p class="text-sm">The product(s) will be sent to:</p>
                     <p class="text-sm">{{ $envio->address }}</p>
-                    <p>{{ $envio->department }} - {{ $envio->city }} - {{ $envio->district }}</p>
+                    <p>{{ $envio->state }}, {{ $envio->city }}</p>
+                    <p>Zip Code: {{ $envio->zip }}</p>
 
 
                 </div>

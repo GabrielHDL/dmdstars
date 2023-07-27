@@ -18,16 +18,12 @@ class Order extends Model
     const NULLED = 5;
 
     //Relacion uno a muchos inversa
-    public function department(){
-        return $this->belongsTo(Department::class);
+    public function state() {
+        return $this->belongsTo(State::class);
     }
 
     public function city(){
         return $this->belongsTo(City::class);
-    }
-
-    public function district(){
-        return $this->belongsTo(District::class);
     }
 
     public function user(){

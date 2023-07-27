@@ -30,11 +30,16 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "app/",
-            "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/"
+            "App\\": "app/"
         },
-        "files": ["app/helpers.php"]
+        "files": [
+            "app/helpers.php"
+        ],
+        "classmap": [
+            "database/seeders",
+            "database/seeders/state-cities",
+            "database/factories"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

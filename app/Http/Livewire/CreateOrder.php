@@ -3,9 +3,8 @@
 namespace App\Http\Livewire;
 
 use App\Models\City;
-use App\Models\Department;
-use App\Models\District;
 use App\Models\Order;
+use App\Models\State;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Livewire\Component;
 
@@ -13,31 +12,31 @@ class CreateOrder extends Component
 {
     public $envio_type = 1;
 
-    public $contact, $phone, $address, $references, $shipping_cost = 0;
+    public $contact, $phone, $zip, $address, $references, $shipping_cost = 0;
 
-    public $departments, $cities = [], $districts = [];
+    public $states, $cities = [];
 
-    public $department_id = "", $city_id = "", $district_id = "";
+    public $state_id = "", $city_id = "";
 
     public $rules = [
         'contact' => 'required',
         'phone' => 'required',
-        'department_id' => 'required',
+        'state_id' => 'required',
         'city_id' => 'required',
-        'district_id' => 'required',
+        'zip' => 'required',
         'address' => 'required',
         'references' => 'required'
     ];
 
     public function mount(){
-        $this->departments = Department::all();
+        $this->states = State::all();
     }
 
 
-    public function updatedDepartmentId($value){
-        $this->cities = City::where('department_id', $value)->get();
+    public function updatedStateId($value){
+        $this->cities = City::where('state_id', $value)->get();
 
-        $this->reset(['city_id', 'district_id']);
+        $this->reset('city_id');
     }
 
 
@@ -46,10 +45,6 @@ class CreateOrder extends Component
         $city = City::find($value);
 
         $this->shipping_cost = $city->cost;
-
-        $this->districts = District::where('city_id', $value)->get();
-
-        $this->reset('district_id');
     }
 
 
@@ -72,10 +67,10 @@ class CreateOrder extends Component
         $order->shipping_cost = $this->shipping_cost;
 
         $order->envio = json_encode([
-            'department' => Department::find($this->department_id)->name,
+            'state' => State::find($this->state_id)->name,
             'city' => City::find($this->city_id)->name,
-            'district' => District::find($this->district_id)->name,
             'address' => $this->address,
+            'zip' => $this->zip,
             'references' => $this->references
         ]);
 

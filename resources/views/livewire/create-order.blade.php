@@ -32,23 +32,23 @@
 
                 <div class="px-6 pt-4 pb-6 grid grid-cols-2 gap-6">
 
-                    {{-- Departamentos --}}
+                    {{-- States --}}
                     <div>
-                        <x-label class="text-platinum text-[1rem] mb-2" value="Department" />
+                        <x-label class="text-platinum text-[1rem] mb-2" value="State" />
 
-                        <select class="rounded-lg w-full focus:ring-deer focus:border-deer" wire:model="department_id">
+                        <select class="rounded-lg w-full focus:ring-deer focus:border-deer" wire:model="state_id">
 
-                            <option value="" disabled selected>Select Department</option>
+                            <option value="" disabled selected>Select State</option>
 
-                            @foreach ($departments as $department)
-                                <option value="{{ $department->id }}">{{ $department->name }}</option>
+                            @foreach ($states as $state)
+                                <option value="{{ $state->id }}">{{ $state->name }}</option>
                             @endforeach
                         </select>
 
-                        <x-input-error for="department_id" />
+                        <x-input-error for="state_id" />
                     </div>
 
-                    {{-- Ciudades --}}
+                    {{-- Cities --}}
                     <div>
                         <x-label class="text-platinum text-[1rem] mb-2" value="City" />
 
@@ -64,25 +64,14 @@
                         <x-input-error for="city_id" />
                     </div>
 
-
-                    {{-- Distritos --}}
                     <div>
-                        <x-label class="text-platinum text-[1rem] mb-2" value="District" />
-
-                        <select class="rounded-lg w-full focus:ring-deer focus:border-deer" wire:model="district_id">
-
-                            <option value="" disabled selected>Select District</option>
-
-                            @foreach ($districts as $district)
-                                <option value="{{ $district->id }}">{{ $district->name }}</option>
-                            @endforeach
-                        </select>
-
-                        <x-input-error for="district_id" />
+                        <x-label class="text-platinum text-[1rem] mb-2" value="Zip Code" />
+                        <x-input class="w-full" wire:model.defer="zip" type="text" maxlength="5" pattern="[0-9]{5}" placeholder="01000" />
+                        <x-input-error class="mt-2" for="cp" />
                     </div>
 
                     <div>
-                        <x-label class="text-platinum text-[1rem] mb-2" value="Address with Zip Code" />
+                        <x-label class="text-platinum text-[1rem] mb-2" value="Address" />
                         <x-input class="w-full" wire:model="address" type="text" placeholder="Enter an address with zip code" />
                         <x-input-error for="address" />
                     </div>
@@ -159,16 +148,12 @@
                 <div class="text-platinum">
                     <p class="flex justify-between items-center">
                         Subtotal
-                        <span class="font-semibold">{{ Cart::subtotal() }} USD</span>
+                        <span class="font-semibold">${{ Cart::subtotal() }} USD</span>
                     </p>
                     <p class="flex justify-between items-center">
                         Shipping
                         <span class="font-semibold">
-                            @if ($envio_type == 1 || $shipping_cost == 0)
-                                Free
-                            @else
-                                {{ $shipping_cost }} USD
-                            @endif
+                            ${{ $shipping_cost }} USD
                         </span>
                     </p>
 
@@ -176,11 +161,7 @@
 
                     <p class="flex justify-between items-center font-semibold text-goldenrod">
                         <span class="text-lg">Total</span>
-                        @if ($envio_type == 1)
-                            ${{ Cart::subtotal() }} USD
-                        @else
-                            ${{ Cart::subtotal() + $shipping_cost }} USD
-                        @endif
+                        ${{ Cart::subtotal() + $shipping_cost }} USD
                     </p>
                 </div>
             </div>

@@ -1,11 +1,11 @@
 <x-mail::message>
 <div>
-    <h1>Hi, {{$order->contact}}</h1>
+    <h1>Hi {{$order->contact}}!</h1>
 </div>
 
 <p>Your order has been registered with the order number: {{$order->id}}</p>
 <br>
-<p>The order will be sent to {{$envio->address}}, {{$envio->department}}, {{$envio->city}}, {{$envio->district}}</p>
+<p>The order will be sent to {{$envio->address}}, {{$envio->state}}, {{$envio->city}}, {{$envio->zip}}</p>
 <br>
 <h3>Summary of your purchase:</h3>
 

@@ -13,7 +13,7 @@
                         <p class="text-lg font-saol font-bold">Shipping</p>
                         <p class="text-sm">We shipping to:</p>
                         <p class="text-sm">{{ $envio->address }}</p>
-                        <p>{{ $envio->department }} - {{ $envio->city }} - {{ $envio->district }}</p>
+                        <p>{{ $envio->state }}, {{ $envio->city }}</p>
 
 
                     </div>

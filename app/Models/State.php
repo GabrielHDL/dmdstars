@@ -5,18 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Department extends Model
+class State extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name'];
+    protected $guarded = ['state_id'];
 
-    //Relacion uno a muchos
-    public function cities(){
+    //Relación uno a muchos
+    public function cities() {
         return $this->hasMany(City::class);
     }
 
-    public function orders(){
+    public function orders() {
         return $this->hasMany(Order::class);
     }
 }

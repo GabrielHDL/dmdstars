@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Mail\NoreplyMailable;
+use App\Mail\NotificationMailable;
 use App\Models\Order;
 use App\Models\User;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -37,6 +38,8 @@ class PaymentOrder extends Component
 
             $this->sendConfirmationMail($this->order);
 
+            $this->sendNotificationMail($this->order);
+
             return redirect()->route('orders.show', $this->order);
 
         } catch (\Exception $e) {
@@ -52,6 +55,10 @@ class PaymentOrder extends Component
         $user = User::find($this->order->user_id);
 
         Mail::to($user->email)->send(new NoreplyMailable($order));
+    }
+
+    public function sendNotificationMail($order) {
+        Mail::to('alondra@dmdstars.com')->send(new NotificationMailable($order));
     }
 
     public function addPaymentMethod($paymentMethod) {

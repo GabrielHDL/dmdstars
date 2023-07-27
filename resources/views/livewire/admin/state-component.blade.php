@@ -3,11 +3,11 @@
     <x-form-section submit="save" class="mb-6">
 
         <x-slot name="title">
-            <p class="title__admin">Add a new department</p>
+            <p class="title__admin">Add a new state</p>
         </x-slot>
 
         <x-slot name="description">
-            <p class="text-goldenrod">Complete the necessary information to be able to add a new department</p>
+            <p class="text-goldenrod">Complete the necessary information to be able to add a new state</p>
         </x-slot>
 
         <x-slot name="form">
@@ -25,7 +25,7 @@
         <x-slot name="actions">
 
             <x-action-message class="mr-3" on="saved">
-                Department Added
+                State Added
             </x-action-message>
 
             <x-button>
@@ -37,11 +37,11 @@
     {{-- Mostrar Departamentos --}}
     <x-action-section>
         <x-slot name="title">
-            <p class="title__admin">Department List</p>
+            <p class="title__admin">State List</p>
         </x-slot>
 
         <x-slot name="description">
-            <p class="text-goldenrod">Here you will find all the added departments</p>
+            <p class="text-goldenrod">Here you will find all the added states</p>
         </x-slot>
 
         <x-slot name="content">
@@ -55,18 +55,18 @@
                 </thead>
 
                 <tbody class="divide-y divide-gray-300">
-                    @foreach ($departments as $department)
+                    @foreach ($states as $state)
                         <tr>
                             <td class="py-2">
 
-                                <a href="{{route('admin.departments.show', $department)}}" class="uppercase underline hover:text-blue-600">
-                                    {{$department->name}}
+                                <a href="{{route('admin.states.show', $state)}}" class="uppercase underline hover:text-blue-600">
+                                    {{$state->name}}
                                 </a>
                             </td>
                             <td class="py-2">
                                 <div class="flex divide-x divide-gray-300 font-semibold">
-                                    <a class="pr-2 hover:text-blue-600 cursor-pointer" wire:click="edit({{$department}})">Edit</a>
-                                    <a class="pl-2 hover:text-red-600 cursor-pointer" wire:click="$emit('deleteDepartment', {{$department->id}})">Delete</a>
+                                    <a class="pr-2 hover:text-blue-600 cursor-pointer" wire:click="edit({{$state}})">Edit</a>
+                                    <a class="pl-2 hover:text-red-600 cursor-pointer" wire:click="$emit('deleteState', {{$state->id}})">Delete</a>
                                 </div>
                             </td>
                         </tr>
@@ -81,7 +81,7 @@
     <x-dialog-modal wire:model="editForm.open">
 
         <x-slot name="title">
-            Edit Department
+            Edit State
         </x-slot>
 
         <x-slot name="content">
@@ -112,7 +112,7 @@
 
     @push('scripts')
         <script>
-            Livewire.on('deleteDepartment', departmentId => {
+            Livewire.on('deleteState', stateId => {
             
                 Swal.fire({
                     title: 'Are you sure?',
@@ -125,7 +125,7 @@
                 }).then((result) => {
                     if (result.isConfirmed) {
 
-                        Livewire.emitTo('admin.department-component', 'delete', departmentId)
+                        Livewire.emitTo('admin.department-component', 'delete', stateId)
 
                         Swal.fire(
                             'Deleted!',

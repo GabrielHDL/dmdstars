@@ -5,9 +5,6 @@ use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Livewire\Admin\ShowCategory;
 use App\Http\Livewire\Admin\BrandComponent;
-use App\Http\Livewire\Admin\DepartmentComponent;
-use App\Http\Livewire\Admin\ShowDepartment;
-use App\Http\Livewire\Admin\CityComponent;
 use App\Http\Livewire\Admin\UserComponent;
 use App\Http\Controllers\Admin\Contact;
 use App\Http\Controllers\Admin\Partners;
@@ -18,6 +15,8 @@ use App\Http\Controllers\Admin\Rejected;
 use App\Http\Livewire\Admin\CreateProduct;
 use App\Http\Livewire\Admin\EditProduct;
 use App\Http\Livewire\Admin\ShowProducts;
+use App\Http\Livewire\Admin\ShowState;
+use App\Http\Livewire\Admin\StateComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,10 +46,10 @@ Route::get('categories/{category}', ShowCategory::class)->name('categories.show'
 
 Route::get('brands', BrandComponent::class)->name('brands.index');
 
-Route::get('departments', DepartmentComponent::class)->name('departments.index');
-Route::get('departments/{department}', ShowDepartment::class)->name('departments.show');
+Route::get('states', StateComponent::class)->name('states.index');
+Route::get('states/{state}', ShowState::class)->name('states.show');
 
-Route::get('cities/{city}', CityComponent::class)->name('cities.show');
+// Route::get('cities/{city}', CityComponent::class)->name('cities.show');
 
 Route::get('users', UserComponent::class)->name('users.index');
 

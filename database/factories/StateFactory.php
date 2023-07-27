@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\District>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\State>
  */
-class DistrictFactory extends Factory
+class StateFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +17,7 @@ class DistrictFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->word(),
+            //
         ];
     }
 }

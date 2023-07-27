@@ -34,34 +34,7 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    <style>
-        @font-face {
-            font-family: 'proxima_novabold';
-            src: url('/assets/fonts/proximanova-bold-webfont.woff2') format('woff2'),
-                url('/assets/fonts/proximanova-bold-webfont.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
     
-        }
-    
-        @font-face {
-            font-family: 'proxima_novaregular';
-            src: url('/assets/fonts/proxima_nova_font-webfont.woff2') format('woff2'),
-                url('/assets/fonts/proxima_nova_font-webfont.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
-    
-        }
-    
-        @font-face {
-            font-family: 'saol_displayregular';
-            src: url('/assets/fonts/saoldisplay-regular-webfont.woff2') format('woff2'),
-                url('/assets/fonts/saoldisplay-regular-webfont.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
-    
-        }
-    </style>
     <body class="font-sans antialiased w-full">
         @if (Request::routeIs(['admin.index', 'admin.landing']))
             <div id="preloader" class="transition-all ease-out duration-300 opacity-100 bg-rifleGreen w-full h-screen flex justify-center items-center fixed top-0 z-[9999]">

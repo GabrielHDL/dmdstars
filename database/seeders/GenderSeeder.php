@@ -15,21 +15,19 @@ class GenderSeeder extends Seeder
      */
     public function run(): void
     {
-        $genders = [
-            [
-                'name' => 'Women',
-                'slug' => Str::slug('Women'),
-                'icon' => '<i class="fa-solid fa-person-dress"></i>'
-            ],
-            [
-                'name' => 'Men',
-                'slug' => Str::slug('Men'),
-                'icon' => '<i class="fa-solid fa-person"></i>'
-            ],
-        ];
 
-        foreach ($genders as $gender) {
-            $gender = Gender::factory(1)->create($gender)->first();
-        }
+        Gender::create([
+            'name' => 'Women',
+            'slug' => Str::slug('Women'),
+            'icon' => '<i class="fa-solid fa-person-dress"></i>',
+            'image' => 'genders/womens_wall.jpg'
+        ]);
+
+        Gender::create([
+            'name' => 'Men',
+            'slug' => Str::slug('Men'),
+            'icon' => '<i class="fa-solid fa-person"></i>',
+            'image' => 'genders/mens_wall.jpg'
+        ]);
     }
 }

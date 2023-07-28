@@ -26,13 +26,12 @@
                     class="text-rifleGreen font-saol text-2xl font-bold block mb-6 @if ($loop->last) mt-6 @endif">{{ $gender->name }}</a>
                 <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                     @foreach ($gender->categories as $category)
-                        <a href="{{route('genderCategory.show', [$category->gender, $category])}}"
-                            class="bg-rifleGreen text-platinum hover:text-white hover:shadow-lg hover:shadow-black/40 transition-all ease-linear image-full">
-                            <figure><img class="h-56 w-auto object-cover object-center" src="{{ Storage::url($category->image) }}" alt="Shoes" /></figure>
-                            <div class="card-body">
-                                <h2 class="card-title">{{ $category->name }}</h2>
-                            </div>
-                        </a>
+                    <div class="bg-rifleGreen text-platinum hover:text-white hover:shadow-lg hover:shadow-black/40 transition-all ease-linear image-full">
+                        <a class="h-56 w-auto" href="{{route('genderCategory.show', [$category->gender, $category])}}"><img class="object-cover object-center" src="{{ Storage::url($category->image) }}" alt="Shoes" /></a>
+                        <div class="card-body">
+                            <h2 class="card-title">{{ $category->name }}</h2>
+                        </div>
+                    </div>
                     @endforeach
                 </div>
             </div>

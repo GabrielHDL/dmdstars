@@ -143,5 +143,7 @@ class DatabaseSeeder extends Seeder
         //  $this->call(state50TableSeeder::class);
         //  //WY - Wyoming
         //  $this->call(state51TableSeeder::class);
+
+        $this->call(PartnerSeeder::class);
     }
 }

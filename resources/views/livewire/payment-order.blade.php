@@ -109,7 +109,7 @@
             <div class="bg-rifleGreen shadow-lg text-platinum relative">
                 <div wire:loading.flex class="absolute bg-deer h-full w-full flex-col justify-center items-center z-50">
                     <span class="text-platinum loading loading-bars loading-lg"></span>
-                    <span class="mt-6 text-platinum font-proximaBold">Processing payment, please wait...</span>
+                    <span class="mt-6 text-platinum font-proximaBold">Processing, please wait...</span>
                 </div>
                 <div class="flex items-start justify-center flex-col w-full">
                     <div class="bg-slate-900/20 w-full h-full px-6 pt-6 pb-2 border-b border-deer">

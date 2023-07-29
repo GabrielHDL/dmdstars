@@ -16,14 +16,14 @@
               <tbody>
                 @forelse ($pendings as $pending)
                     <tr class="hover:bg-platinum hover:text-rifleGreen">
-                        <th><a href="{{route('admin.contact.show', $pending)}}">{{$pending->id}}</a></th>
-                        <td><a href="{{route('admin.contact.show', $pending)}}">{{$pending->name}}</a></td>
-                        <td><a href="{{route('admin.contact.show', $pending)}}">{{$pending->email}}</a></td>
-                        <td><a href="{{route('admin.contact.show', $pending)}}"">{{$pending->phone}}</a></td>
+                        <th><a href="{{route('admin.landing-contact.show', $pending)}}">{{$pending->id}}</a></th>
+                        <td><a href="{{route('admin.landing-contact.show', $pending)}}">{{$pending->name}}</a></td>
+                        <td><a href="{{route('admin.landing-contact.show', $pending)}}">{{$pending->email}}</a></td>
+                        <td><a href="{{route('admin.landing-contact.show', $pending)}}"">{{$pending->phone}}</a></td>
                         @if ($pending->isActive == false)
-                            <td><a href="{{route('admin.contact.show', $pending)}}"><span class="bg-amber-500 text-amber-700 rounded-full py-1 px-4">Pending</span></a></td>
+                            <td><a href="{{route('admin.landing-contact.show', $pending)}}"><span class="bg-amber-500 text-amber-700 rounded-full py-1 px-4">Pending</span></a></td>
                         @else
-                            <td><a href="{{route('admin.contact.show', $pending)}}"><span class="bg-blue-500 text-blue-700 rounded-full py-1 px-4">Contacted</span></a></td>
+                            <td><a href="{{route('admin.landing-contact.show', $pending)}}"><span class="bg-blue-500 text-blue-700 rounded-full py-1 px-4">Contacted</span></a></td>
                         @endif
                     </tr>
                 @empty

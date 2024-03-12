@@ -6,7 +6,8 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 use Livewire\Component;
 
 class ShoppingCart extends Component
-{protected $listeners = ['render'];
+{
+    protected $listeners = ['render'];
 
     public function destroy(){
         Cart::destroy();

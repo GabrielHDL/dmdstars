@@ -1,6 +1,6 @@
 <x-app-layout>
     <!-- component -->
-    <section class=overflow-hidden">
+    <section class="overflow-hidden">
         <div class="container px-5 py-16 mx-auto">
             <div class="lg:w-4/5 mx-auto flex flex-wrap">
                 <div class="flexslider lg:w-1/2 w-full object-cover object-center rounded border border-rifleGreen">

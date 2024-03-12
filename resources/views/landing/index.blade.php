@@ -110,10 +110,6 @@
 
                 <p class="text-rifleGreen text-lg text-center">I aim to stay focused and prove to myself that I can achieve my goals.<br />With your support, I will strive even harder. Thank you for taking the time to read this brochure. I eagerly await your response and am here to address any inquiries you may have.</p>
 
-                <h2 class="text-rifleGreen font-saol text-4xl font-bold text-center mt-6">Join Us at the Hermosa Hotel in Avalon</h2>
-
-                <p class="text-deer text-xl text-center font-bold mt-6">The event will take place on July 11, 2023<br />at the lobby of the Hermosa Hotel <br />located at 131 Metropole Ave.<br />Avalon, CA 90704.</p>
-
                 <a data-inviewport="appear" href="#bepartner" type="button" class="mt-8 uppercase font-bold text-white bg-goldenrod hover:bg-deer focus:ring-4 focus:outline-none focus:ring-deer text-sm px-8 py-3 text-center inline-flex items-center">
                     Be a Partner
                     <i class="ml-4 -mr-1 fa-solid fa-chevron-right"></i>
@@ -123,6 +119,7 @@
     <div data-inviewport="slide-top" id="bepartner" class="container min-h-screen justify-center items-center flex flex-col">
         <div>
             <h3 class="text-rifleGreen font-saol font-bold text-5xl">Be a Partner</h3>
+            
         </div>
         <div class="grid sm:grid-cols-2 mt-16">
             <div class="h-full w-full flex justify-center items-center">

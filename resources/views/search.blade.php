@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="container py-8">
-        <div class="grid grid-cols-4 gap-3">
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
             @forelse($products as $product)
                 <x-product-list :product="$product" />
 

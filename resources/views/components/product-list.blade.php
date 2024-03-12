@@ -16,8 +16,7 @@
         <div class="flex items-center justify-between">
             <span class="text-xl font-bold text-platinum">{{ '$' . $product->price }}</span>
             <a href="{{route('products.show', $product)}}"
-                class="border-none rounded-none text-white bg-goldenrod hover:bg-deer focus:ring-4 focus:outline-none focus:ring-deer uppercase text-sm px-5 py-2.5 text-center font-semibold">Add
-                to cart</a>
+                class="border-none rounded-none text-white bg-goldenrod hover:bg-deer focus:ring-4 focus:outline-none focus:ring-deer uppercase text-sm px-5 py-2.5 text-center font-semibold">More</a>
         </div>
     </div>
 </div>

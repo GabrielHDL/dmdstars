@@ -61,7 +61,7 @@
         @livewire('navigation')
 
         <!-- Page Content -->
-            <main>
+        <main>
 
             {{ $slot }}
         </main>
